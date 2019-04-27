@@ -1,0 +1,95 @@
+{
+	"private": true,
+	"name": "@shockpkg/cli",
+	"description": "shockpkg cli",
+	"version": "0.0.0",
+	"keywords": [
+		"shockpkg",
+		"package",
+		"manager",
+		"flash",
+		"shockwave",
+		"player",
+		"air",
+		"sdk"
+	],
+	"main": "lib/index",
+	"types": "lib/index.d.ts",
+	"bin": {
+		"shockpkg": "./bin/run"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"scripts": {
+		"upgrade-interactive": "npm-check --update",
+		"clean": "nps clean",
+		"lint": "nps lint",
+		"build": "nps build",
+		"test": "nps test",
+		"watch": "nps watch",
+		"prepack": "nps clean lint build test"
+	},
+	"repository": "https://github.com/shockpkg/cli.git",
+	"bugs": "https://github.com/shockpkg/cli/issues",
+	"author": "JrMasterModelBuilder",
+	"copyright": "Copyright (c) 2018-2019 JrMasterModelBuilder",
+	"license": "MPL-2.0",
+	"dependencies": {
+		"@babel/runtime": "^7.4.4",
+		"@oclif/command": "^1.5.13",
+		"@oclif/config": "^1.12.12",
+		"@oclif/plugin-help": "^2.1.6",
+		"@shockpkg/core": "^1.6.1",
+		"npm-check": "^5.9.0",
+		"source-map-support": "^0.5.12"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.4.4",
+		"@babel/plugin-proposal-class-properties": "^7.4.4",
+		"@babel/plugin-proposal-decorators": "^7.4.4",
+		"@babel/plugin-transform-runtime": "^7.4.4",
+		"@babel/preset-env": "^7.4.4",
+		"@babel/preset-typescript": "^7.3.3",
+		"@babel/register": "^7.4.4",
+		"@oclif/dev-cli": "^1.22.0",
+		"@oclif/test": "^1.2.4",
+		"@types/jasmine": "^3.3.12",
+		"@types/node": "^11.13.8",
+		"@types/source-map-support": "^0.5.0",
+		"chai": "^4.2.0",
+		"eslint": "^5.16.0",
+		"gulp": "^4.0.1",
+		"gulp-babel": "^8.0.0",
+		"gulp-filter": "^5.1.0",
+		"gulp-insert": "^0.5.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sourcemaps": "^2.6.5",
+		"jasmine": "^3.4.0",
+		"jasmine-core": "^3.4.0",
+		"jasmine-spec-reporter": "^4.2.1",
+		"nodemon": "^1.18.11",
+		"nps": "^5.9.5",
+		"nps-utils": "^1.7.0",
+		"rimraf": "^2.6.3",
+		"ts-node": "^8.1.0",
+		"tslint": "^5.16.0",
+		"tslint-consistent-codestyle": "^1.15.1",
+		"tslint-eslint-rules": "^5.4.0",
+		"typescript": "^3.4.5"
+	},
+	"files": [
+		"/bin",
+		"/lib",
+		"/oclif.manifest.json"
+	],
+	"oclif": {
+		"commands": "./lib/commands",
+		"bin": "shockpkg",
+		"plugins": [
+			"@oclif/plugin-help"
+		],
+		"description": "shockpkg - shockpkg CLI\nCopyright (c) 2018-2019 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
+	}
+}
