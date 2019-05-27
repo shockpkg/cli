@@ -22,6 +22,12 @@ import {
 	ProgressCallback
 } from './progress';
 
+const noRangeHeadersErrorMessage =
+	'Unexpected status code: 200 expected: 206';
+
+const failedInstallSlimTryFullMessage =
+	'Failed to stream using slim method, trying full';
+
 /**
  * Command constructor.
  */
@@ -331,20 +337,34 @@ export abstract class Command extends CommandBase {
 	 * @param method Install method.
 	 */
 	protected async _commandInstall(packages: string[], method: string) {
-		let report: IPackageInstalled[];
+		const report: IPackageInstalled[] = [];
+
+		let installer: (m: Manager, pkg: Package) => Promise<Package[]>;
 		switch (method) {
 			case 'slim': {
-				report = await this._manager(async m => {
-					this._installEvents(m, 'upgrade');
-					return m.installSlimMulti(packages);
-				});
+				installer = (m: Manager, pkg: Package) => m.installSlim(pkg);
 				break;
 			}
 			case 'full': {
-				report = await this._manager(async m => {
-					this._installEvents(m, 'upgrade');
-					return m.installFullMulti(packages);
-				});
+				installer = (m: Manager, pkg: Package) => m.installFull(pkg);
+				break;
+			}
+			case 'best': {
+				installer = async (m: Manager, pkg: Package) => {
+					try {
+						const r = await m.installSlim(pkg);
+						return r;
+					}
+					catch (err) {
+						if (err && err.message === noRangeHeadersErrorMessage) {
+							this.warn(failedInstallSlimTryFullMessage);
+						}
+						else {
+							throw err;
+						}
+					}
+					return m.installFull(pkg);
+				};
 				break;
 			}
 			default: {
@@ -353,6 +373,19 @@ export abstract class Command extends CommandBase {
 				);
 			}
 		}
+
+		await this._manager(async m => {
+			this._installEvents(m, 'install');
+			const list = m.packagesDependOrdered(packages);
+			for (const pkg of list) {
+				const installed = await installer(m, pkg);
+				report.push({
+					package: pkg,
+					installed
+				});
+			}
+		});
+
 		const {installed, skipped} = this._installReportCounts(report);
 		this.log('');
 		this.log(`installed: ${installed}`);

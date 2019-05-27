@@ -9,7 +9,8 @@ export default class Install extends Command {
 	/**
 	 * Description.
 	 */
-	public static description = 'install packages, slim method';
+	public static description =
+		'install packages, slim method, fallback on full method';
 
 	/**
 	 * Examples.
@@ -46,6 +47,6 @@ export default class Install extends Command {
 		// tslint:disable-next-line: no-unused
 		const {args, flags, argv} = this.parse(Install);
 
-		await this._commandInstall(argv, 'slim');
+		await this._commandInstall(argv, 'best');
 	}
 }
