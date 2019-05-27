@@ -342,15 +342,15 @@ export abstract class Command extends CommandBase {
 		let installer: (m: Manager, pkg: Package) => Promise<Package[]>;
 		switch (method) {
 			case 'slim': {
-				installer = (m: Manager, pkg: Package) => m.installSlim(pkg);
+				installer = (m, pkg) => m.installSlim(pkg);
 				break;
 			}
 			case 'full': {
-				installer = (m: Manager, pkg: Package) => m.installFull(pkg);
+				installer = (m, pkg) => m.installFull(pkg);
 				break;
 			}
 			case 'best': {
-				installer = async (m: Manager, pkg: Package) => {
+				installer = async (m, pkg) => {
 					try {
 						const r = await m.installSlim(pkg);
 						return r;
