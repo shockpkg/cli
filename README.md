@@ -24,7 +24,7 @@ $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
 $ shockpkg (-v|--version|version)
-@shockpkg/cli/1.0.2 darwin-x64 node-v12.1.0
+@shockpkg/cli/1.0.2 darwin-x64 node-v12.3.1
 $ shockpkg --help [COMMAND]
 USAGE
   $ shockpkg COMMAND
@@ -154,7 +154,7 @@ _See code: [src/commands/info.ts](https://github.com/shockpkg/cli/blob/v1.0.2/sr
 
 ## `shockpkg install PACKAGES`
 
-install packages, slim method
+install packages, slim method, fallback on full method
 
 ```
 USAGE
