@@ -21,13 +21,13 @@
 		"node": ">=10.0.0"
 	},
 	"scripts": {
-		"upgrade-interactive": "npm-check --update",
-		"clean": "nps clean",
-		"lint": "nps lint",
-		"build": "nps build",
-		"test": "nps test",
-		"watch": "nps watch",
-		"prepack": "nps clean lint build test"
+		"clean": "gulp clean",
+		"lint": "gulp lint",
+		"build": "gulp build",
+		"test": "gulp test",
+		"all": "gulp all",
+		"watch": "nodemon --exec 'gulp watched'",
+		"prepack": "gulp prepack"
 	},
 	"repository": "https://github.com/shockpkg/cli.git",
 	"bugs": "https://github.com/shockpkg/cli/issues",
@@ -40,7 +40,6 @@
 		"@oclif/config": "^1.13.0",
 		"@oclif/plugin-help": "^2.1.6",
 		"@shockpkg/core": "^1.6.3",
-		"npm-check": "^5.9.0",
 		"source-map-support": "^0.5.12"
 	},
 	"devDependencies": {
@@ -57,7 +56,9 @@
 		"@types/node": "^12.0.2",
 		"@types/source-map-support": "^0.5.0",
 		"chai": "^4.2.0",
+		"del": "^5.0.0",
 		"eslint": "^5.16.0",
+		"execa": "^2.0.3",
 		"gulp": "^4.0.2",
 		"gulp-babel": "^8.0.0",
 		"gulp-filter": "^5.1.0",
@@ -69,9 +70,6 @@
 		"jasmine-core": "^3.4.0",
 		"jasmine-spec-reporter": "^4.2.1",
 		"nodemon": "^1.19.1",
-		"nps": "^5.9.5",
-		"nps-utils": "^1.7.0",
-		"rimraf": "^2.6.3",
 		"ts-node": "^8.2.0",
 		"tslint": "^5.16.0",
 		"tslint-consistent-codestyle": "^1.15.1",
