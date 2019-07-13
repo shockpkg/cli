@@ -1,6 +1,6 @@
 # cli
 
-The shockpkg CLI.
+The shockpkg CLI
 
 [![npm](https://img.shields.io/npm/v/@shockpkg/cli.svg)](https://npmjs.com/package/@shockpkg/cli)
 [![node](https://img.shields.io/node/v/@shockpkg/cli.svg)](https://nodejs.org)
