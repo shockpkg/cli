@@ -177,24 +177,24 @@ gulp.task('build:lib:mjs', async () => {
 	await babelTarget(['src/**/*.ts'], {}, 'lib', false);
 });
 
-gulp.task('build:lib:manifest', async () => {
-	await exec('oclif-dev', ['manifest']);
-});
-
-gulp.task('build:lib:readme', async () => {
-	await exec('oclif-dev', ['readme']);
-});
-
 gulp.task('build:lib', gulp.parallel([
 	'build:lib:dts',
 	'build:lib:cjs',
-	'build:lib:mjs',
-	'build:lib:manifest',
-	'build:lib:readme'
+	'build:lib:mjs'
 ]));
 
+gulp.task('build:manifest', async () => {
+	await exec('oclif-dev', ['manifest']);
+});
+
+gulp.task('build:readme', async () => {
+	await exec('oclif-dev', ['readme']);
+});
+
 gulp.task('build', gulp.parallel([
-	'build:lib'
+	'build:lib',
+	'build:manifest',
+	'build:readme'
 ]));
 
 // test
