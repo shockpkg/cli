@@ -83,7 +83,8 @@
 	"files": [
 		"/bin",
 		"/lib",
-		"/oclif.manifest.json"
+		"/oclif.manifest.json",
+		"/module.mjs"
 	],
 	"oclif": {
 		"commands": "./lib/commands",
