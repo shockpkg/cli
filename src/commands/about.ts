@@ -1,6 +1,5 @@
 /* eslint-disable import/no-default-export */
 
-import {flags} from '@oclif/command';
 import {
 	NAME as SHOCKPKG_CORE_NAME,
 	VERSION as SHOCKPKG_CORE_VERSION
@@ -10,7 +9,10 @@ import {
 	NAME,
 	VERSION
 } from '../meta';
-import {Command} from '../command';
+import {
+	Command,
+	flags
+} from '../command';
 
 /**
  * About command.

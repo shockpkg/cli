@@ -1,8 +1,9 @@
 /* eslint-disable import/no-default-export */
 
-import {flags} from '@oclif/command';
-
-import {Command} from '../command';
+import {
+	Command,
+	flags
+} from '../command';
 
 /**
  * Path command.

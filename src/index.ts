@@ -1,4 +1,3 @@
-export {run} from '@oclif/command';
 export * from './meta';
 export * from './constants';
 export * from './util';

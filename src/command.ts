@@ -1,5 +1,5 @@
-import {Command as CommandBase} from '@oclif/command';
-import {install as sourceMapSupportInstall} from 'source-map-support';
+import * as command from '@oclif/command';
+import sourceMapSupport from 'source-map-support';
 import {
 	Manager,
 	Package,
@@ -22,6 +22,11 @@ import {
 	ProgressCallback
 } from './progress';
 
+// Compensate for ESM and CJS module loader differences.
+const CommandBase = command.Command || (command as any).default.Command;
+export const flags = command.flags || (command as any).default.flags;
+export const run = command.run || (command as any).default.run;
+
 const noRangeHeadersErrorMessage =
 	'Unexpected status code: 200 expected: 206';
 
@@ -39,7 +44,7 @@ export abstract class Command extends CommandBase {
 	 */
 	public async init() {
 		if (envTrue(DEBUG_SOURCE_MAPS_ENV)) {
-			sourceMapSupportInstall();
+			sourceMapSupport.install();
 		}
 
 		return super.init();
