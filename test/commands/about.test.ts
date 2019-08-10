@@ -1,3 +1,5 @@
+/* eslint-env jasmine */
+
 import {test} from '@oclif/test';
 
 describe('about', () => {

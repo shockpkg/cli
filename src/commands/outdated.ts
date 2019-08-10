@@ -1,3 +1,5 @@
+/* eslint-disable import/no-default-export */
+
 import {flags} from '@oclif/command';
 
 import {Command} from '../command';
@@ -32,10 +34,10 @@ export default class Outdated extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// tslint:disable-next-line: no-unused
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const {args, flags, argv} = this.parse(Outdated);
 
-		const outdated = await this._manager(m => m.outdated());
+		const outdated = await this._manager(async m => m.outdated());
 
 		for (const pkg of outdated) {
 			this.log(pkg.name);

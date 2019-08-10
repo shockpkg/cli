@@ -1,4 +1,5 @@
 export interface IProgressTime {
+
 	/**
 	 * Start time.
 	 */
@@ -21,6 +22,7 @@ export interface IProgressTime {
 }
 
 export interface IProgressTotal {
+
 	/**
 	 * Total amount.
 	 */
@@ -99,6 +101,8 @@ export class Progress extends Object {
 
 	/**
 	 * Get the current time.
+	 *
+	 * @returns Current time in milliseconds.
 	 */
 	public now() {
 		return Date.now();

@@ -27,10 +27,7 @@ yarn.lock
 /.eslintrc.yaml
 /.tern-project
 /.travis.yml
-/package-scripts.yml
 /tsconfig.json
-/tsconfig-bin.json
-/tslint.yaml
 /gulpfile.babel.js
 /nodemon.json
 /spec

@@ -24,7 +24,7 @@ $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
 $ shockpkg (-v|--version|version)
-@shockpkg/cli/1.1.1 darwin-x64 node-v12.6.0
+@shockpkg/cli/1.1.1 darwin-x64 node-v12.8.0
 $ shockpkg --help [COMMAND]
 USAGE
   $ shockpkg COMMAND

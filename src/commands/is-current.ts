@@ -1,3 +1,5 @@
+/* eslint-disable import/no-default-export */
+
 import {flags} from '@oclif/command';
 
 import {Command} from '../command';
@@ -38,7 +40,7 @@ export default class IsCurrent extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// tslint:disable-next-line: no-unused
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const {args, flags, argv} = this.parse(IsCurrent);
 		const packageID = args.package;
 

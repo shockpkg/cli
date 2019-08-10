@@ -3,7 +3,7 @@
  *
  * @param v Value.
  * @param d Divisor.
- * @return Integer divided and remainder.
+ * @returns Integer divided and remainder.
  */
 export function divmod(v: number, d: number) {
 	return [Math.floor(v / d), v % d];
@@ -13,10 +13,12 @@ export function divmod(v: number, d: number) {
  * Get environment variable value.
  *
  * @param name Variable name.
- * @return String value or null.
+ * @returns String value or null.
  */
 export function env(name: string) {
+	// eslint-disable-next-line no-process-env
 	const v = process.env[name];
+	// eslint-disable-next-line no-undefined
 	return v === undefined ? null : v;
 }
 
@@ -24,7 +26,7 @@ export function env(name: string) {
  * Get environment variable as a boolean value.
  *
  * @param name Variable name.
- * @return Boolean value.
+ * @returns Boolean value.
  */
 export function envBool(name: string) {
 	const v = env(name);
@@ -43,7 +45,7 @@ export function envBool(name: string) {
  * Check if the environment variable value is true.
  *
  * @param name Variable name.
- * @return Boolean value.
+ * @returns Boolean value.
  */
 export function envTrue(name: string) {
 	return envBool(name) === true;
@@ -53,7 +55,7 @@ export function envTrue(name: string) {
  * Check if the environment variable value is false.
  *
  * @param name Variable name.
- * @return Boolean value.
+ * @returns Boolean value.
  */
 export function envFalse(name: string) {
 	return envBool(name) === false;
@@ -63,7 +65,7 @@ export function envFalse(name: string) {
  * Get environment variable as a number.
  *
  * @param name Variable name.
- * @return Number value.
+ * @returns Number value.
  */
 export function envNumber(name: string) {
 	const str = env(name);
@@ -74,7 +76,7 @@ export function envNumber(name: string) {
  * Get environment variable as a number.
  *
  * @param name Variable name.
- * @return Number value.
+ * @returns Number value.
  */
 export function envInteger(name: string) {
 	const num = envNumber(name);

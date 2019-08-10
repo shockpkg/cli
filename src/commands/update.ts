@@ -1,3 +1,5 @@
+/* eslint-disable import/no-default-export */
+
 import {flags} from '@oclif/command';
 
 import {Command} from '../command';
@@ -32,10 +34,12 @@ export default class Update extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// tslint:disable-next-line: no-unused
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const {args, flags, argv} = this.parse(Update);
 
-		const {updated, added, removed} = await this._manager(m => m.update());
+		const {updated, added, removed} = await this._manager(
+			async m => m.update()
+		);
 		const listed = [
 			{
 				name: 'updated',

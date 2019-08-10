@@ -34,6 +34,8 @@ const failedInstallSlimTryFullMessage =
 export abstract class Command extends CommandBase {
 	/**
 	 * Init function.
+	 *
+	 * @returns Return data.
 	 */
 	public async init() {
 		if (envTrue(DEBUG_SOURCE_MAPS_ENV)) {
@@ -47,6 +49,7 @@ export abstract class Command extends CommandBase {
 	 * Custom error handler function.
 	 *
 	 * @param err Error value.
+	 * @returns Return data if present.
 	 */
 	public async catch(err: any) {
 		try {
@@ -66,7 +69,8 @@ export abstract class Command extends CommandBase {
 			// Otherwise, display error message if possible, otherwise throw.
 			if (err && (err.message || err.message === '')) {
 				this.error(err.message);
-				return;
+				// eslint-disable-next-line no-undefined
+				return undefined;
 			}
 			throw err;
 		}
@@ -75,7 +79,7 @@ export abstract class Command extends CommandBase {
 	/**
 	 * Get the update interval.
 	 *
-	 * @return Update interval.
+	 * @returns Update interval.
 	 */
 	protected _updateInterval() {
 		const env = envInteger(UPDATE_INTERVAL_ENV);
@@ -85,7 +89,7 @@ export abstract class Command extends CommandBase {
 	/**
 	 * Check if the shell is interactive.
 	 *
-	 * @return True if interactive shell, else false.
+	 * @returns True if interactive shell, else false.
 	 */
 	protected _isInteractive() {
 		return process.stdout.isTTY || false;
@@ -95,7 +99,7 @@ export abstract class Command extends CommandBase {
 	 * Transfer seconds human readable.
 	 *
 	 * @param ms Miliseconds passed or null.
-	 * @return Formatted string.
+	 * @returns Formatted string.
 	 */
 	protected _transferSecondsHuman(ms: number | null) {
 		if (ms === null) {
@@ -113,7 +117,7 @@ export abstract class Command extends CommandBase {
 	 * Transfer bytes human readable.
 	 *
 	 * @param size Byte size.
-	 * @return Formatted string.
+	 * @returns Formatted string.
 	 */
 	protected _transferBytesHuman(size: number) {
 		let based = size;
@@ -130,7 +134,7 @@ export abstract class Command extends CommandBase {
 	/**
 	 * Init data transfer progress output function.
 	 *
-	 * @return Progress update callback function.
+	 * @returns Progress update callback function.
 	 */
 	protected _transferProgressOutputInit() {
 		let messageLongest = 0;
@@ -152,7 +156,7 @@ export abstract class Command extends CommandBase {
 
 			// Calculate speed.
 			const bytesMs = time.delta ? total.delta / time.delta : 0;
-			const bytesSec = this._transferBytesHuman(bytesMs * 1000) + '/s';
+			const bytesSec = `${this._transferBytesHuman(bytesMs * 1000)}/s`;
 
 			// Estimate remaining.
 			const timeLeftMs = bytesMs ? total.remaining / bytesMs : null;
@@ -194,7 +198,7 @@ export abstract class Command extends CommandBase {
 	 * Run an async function with a manager instance.
 	 *
 	 * @param handler Handler function.
-	 * @return Return value of the handler function.
+	 * @returns Return value of the handler function.
 	 */
 	protected async _manager<T>(handler: (manager: Manager) => Promise<T>) {
 		return (new Manager()).with(handler);
@@ -273,7 +277,7 @@ export abstract class Command extends CommandBase {
 		manager.eventPackageExtractBefore.on(e => {
 			const pkg = e.package;
 			const {name} = pkg;
-			const parent = pkg.parent;
+			const {parent} = pkg;
 			if (!parent) {
 				throw new Error('Internal error: Extract has no parent');
 			}
@@ -311,7 +315,7 @@ export abstract class Command extends CommandBase {
 	 * Count install report categories.
 	 *
 	 * @param report Report list.
-	 * @return Report counts.
+	 * @returns Report counts.
 	 */
 	protected _installReportCounts(report: IPackageInstalled[]) {
 		let installed = 0;
@@ -342,11 +346,11 @@ export abstract class Command extends CommandBase {
 		let installer: (m: Manager, pkg: Package) => Promise<Package[]>;
 		switch (method) {
 			case 'slim': {
-				installer = (m, pkg) => m.installSlim(pkg);
+				installer = async (m, pkg) => m.installSlim(pkg);
 				break;
 			}
 			case 'full': {
-				installer = (m, pkg) => m.installFull(pkg);
+				installer = async (m, pkg) => m.installFull(pkg);
 				break;
 			}
 			case 'best': {
@@ -378,6 +382,7 @@ export abstract class Command extends CommandBase {
 			this._installEvents(m, 'install');
 			const list = m.packagesDependOrdered(packages);
 			for (const pkg of list) {
+				// eslint-disable-next-line no-await-in-loop
 				const installed = await installer(m, pkg);
 				report.push({
 					package: pkg,
