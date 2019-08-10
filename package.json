@@ -1,7 +1,7 @@
 {
 	"name": "@shockpkg/cli",
 	"description": "shockpkg cli",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"keywords": [
 		"shockpkg",
 		"package",
@@ -41,7 +41,7 @@
 		"@oclif/command": "^1.5.18",
 		"@oclif/config": "^1.13.2",
 		"@oclif/plugin-help": "^2.2.0",
-		"@shockpkg/core": "^1.9.0",
+		"@shockpkg/core": "^1.9.1",
 		"source-map-support": "^0.5.13"
 	},
 	"devDependencies": {
