@@ -21,6 +21,7 @@ yarn.lock
 /shockpkg
 
 /package-lock.json
+/.gitattributes
 /.gitignore
 /.babelrc
 /.editorconfig
