@@ -41,7 +41,7 @@
 		"@oclif/command": "^1.5.18",
 		"@oclif/config": "^1.13.3",
 		"@oclif/plugin-help": "^2.2.1",
-		"@shockpkg/core": "^1.9.1",
+		"@shockpkg/core": "^1.9.2",
 		"source-map-support": "^0.5.13"
 	},
 	"devDependencies": {
@@ -78,7 +78,7 @@
 		"jasmine-spec-reporter": "^4.2.1",
 		"nodemon": "^1.19.1",
 		"ts-node": "^8.3.0",
-		"typescript": "^3.5.3"
+		"typescript": "^3.6.2"
 	},
 	"files": [
 		"/bin",
