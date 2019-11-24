@@ -24,7 +24,7 @@ $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
 $ shockpkg (-v|--version|version)
-@shockpkg/cli/1.2.1 darwin-x64 node-v12.8.0
+@shockpkg/cli/1.2.2 darwin-x64 node-v12.9.1
 $ shockpkg --help [COMMAND]
 USAGE
   $ shockpkg COMMAND
@@ -71,7 +71,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/about.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/about.ts)_
+_See code: [src/commands/about.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/about.ts)_
 
 ## `shockpkg available`
 
@@ -85,7 +85,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/available.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/available.ts)_
+_See code: [src/commands/available.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/available.ts)_
 
 ## `shockpkg cleanup`
 
@@ -99,7 +99,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/cleanup.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/cleanup.ts)_
+_See code: [src/commands/cleanup.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/cleanup.ts)_
 
 ## `shockpkg file PACKAGE`
 
@@ -116,7 +116,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/file.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/file.ts)_
+_See code: [src/commands/file.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/file.ts)_
 
 ## `shockpkg help [COMMAND]`
 
@@ -150,7 +150,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/info.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/info.ts)_
+_See code: [src/commands/info.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/info.ts)_
 
 ## `shockpkg install PACKAGES`
 
@@ -167,7 +167,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/install.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/install.ts)_
 
 ## `shockpkg install-full PACKAGES`
 
@@ -184,7 +184,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/install-full.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/install-full.ts)_
+_See code: [src/commands/install-full.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/install-full.ts)_
 
 ## `shockpkg install-slim PACKAGES`
 
@@ -201,7 +201,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/install-slim.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/install-slim.ts)_
+_See code: [src/commands/install-slim.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/install-slim.ts)_
 
 ## `shockpkg installed`
 
@@ -215,7 +215,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/installed.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/installed.ts)_
+_See code: [src/commands/installed.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/installed.ts)_
 
 ## `shockpkg is-current PACKAGE`
 
@@ -232,7 +232,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/is-current.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/is-current.ts)_
+_See code: [src/commands/is-current.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/is-current.ts)_
 
 ## `shockpkg is-installed PACKAGE`
 
@@ -249,7 +249,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/is-installed.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/is-installed.ts)_
+_See code: [src/commands/is-installed.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/is-installed.ts)_
 
 ## `shockpkg is-obsolete PACKAGE`
 
@@ -266,7 +266,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/is-obsolete.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/is-obsolete.ts)_
+_See code: [src/commands/is-obsolete.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/is-obsolete.ts)_
 
 ## `shockpkg obsolete`
 
@@ -280,7 +280,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/obsolete.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/obsolete.ts)_
+_See code: [src/commands/obsolete.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/obsolete.ts)_
 
 ## `shockpkg outdated`
 
@@ -294,7 +294,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/outdated.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/outdated.ts)_
+_See code: [src/commands/outdated.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/outdated.ts)_
 
 ## `shockpkg path`
 
@@ -308,7 +308,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/path.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/path.ts)_
+_See code: [src/commands/path.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/path.ts)_
 
 ## `shockpkg remove PACKAGES`
 
@@ -325,7 +325,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/remove.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/remove.ts)_
+_See code: [src/commands/remove.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/remove.ts)_
 
 ## `shockpkg update`
 
@@ -339,7 +339,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/update.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/update.ts)_
+_See code: [src/commands/update.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/update.ts)_
 
 ## `shockpkg upgrade`
 
@@ -353,7 +353,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/upgrade.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/upgrade.ts)_
+_See code: [src/commands/upgrade.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/upgrade.ts)_
 
 ## `shockpkg upgrade-full`
 
@@ -367,7 +367,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/upgrade-full.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/upgrade-full.ts)_
+_See code: [src/commands/upgrade-full.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/upgrade-full.ts)_
 
 ## `shockpkg upgrade-slim`
 
@@ -381,7 +381,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/upgrade-slim.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/upgrade-slim.ts)_
+_See code: [src/commands/upgrade-slim.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/upgrade-slim.ts)_
 
 ## `shockpkg url`
 
@@ -395,7 +395,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/url.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/url.ts)_
+_See code: [src/commands/url.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/url.ts)_
 
 ## `shockpkg verify PACKAGE`
 
@@ -412,7 +412,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/verify.ts](https://github.com/shockpkg/cli/blob/v1.2.1/src/commands/verify.ts)_
+_See code: [src/commands/verify.ts](https://github.com/shockpkg/cli/blob/v1.2.2/src/commands/verify.ts)_
 <!-- commandsstop -->
 
 
