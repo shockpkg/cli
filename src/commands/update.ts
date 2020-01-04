@@ -23,7 +23,11 @@ export default class Update extends Command {
 	 * Flags.
 	 */
 	public static flags = {
-		help: flags.help({char: 'h'})
+		help: flags.help({char: 'h'}),
+		summary: flags.boolean({
+			char: 's',
+			description: 'Summarize the updated packages'
+		})
 	};
 
 	/**
@@ -37,6 +41,7 @@ export default class Update extends Command {
 	public async run() {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const {args, flags, argv} = this.parse(Update);
+		const {summary} = flags;
 
 		const {updated, added, removed} = await this._manager(
 			async m => m.update()
@@ -56,15 +61,17 @@ export default class Update extends Command {
 			}
 		];
 
-		for (const {name, list} of listed) {
-			if (!list.length) {
-				continue;
+		if (!summary) {
+			for (const {name, list} of listed) {
+				if (!list.length) {
+					continue;
+				}
+				this.log(`${name}:`);
+				for (const {name} of list) {
+					this.log(name);
+				}
+				this.log('');
 			}
-			this.log(`${name}:`);
-			for (const {name} of list) {
-				this.log(name);
-			}
-			this.log('');
 		}
 
 		for (const {name, list} of listed) {

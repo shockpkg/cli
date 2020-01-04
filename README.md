@@ -336,7 +336,8 @@ USAGE
   $ shockpkg update
 
 OPTIONS
-  -h, --help  show CLI help
+  -h, --help     show CLI help
+  -s, --summary  Summarize the updated packages
 ```
 
 _See code: [src/commands/update.ts](https://github.com/shockpkg/cli/blob/v1.2.5/src/commands/update.ts)_
