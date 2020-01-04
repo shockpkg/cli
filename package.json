@@ -1,7 +1,7 @@
 {
 	"name": "@shockpkg/cli",
 	"description": "shockpkg cli",
-	"version": "1.2.4",
+	"version": "1.2.5",
 	"keywords": [
 		"shockpkg",
 		"package",
