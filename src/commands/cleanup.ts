@@ -12,24 +12,30 @@ export default class Cleanup extends Command {
 	/**
 	 * Description.
 	 */
-	public static description = 'cleanup temporary files and obsolete packages';
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly description = (
+		'cleanup temporary files and obsolete packages'
+	);
 
 	/**
 	 * Examples.
 	 */
-	public static examples = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	public static flags = {
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly flags = {
 		help: flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	public static args = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly args = [];
 
 	/**
 	 * Handler.

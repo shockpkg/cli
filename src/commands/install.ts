@@ -12,26 +12,30 @@ export default class Install extends Command {
 	/**
 	 * Description.
 	 */
-	public static description = (
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly description = (
 		'install packages, slim method, fallback on full method'
 	);
 
 	/**
 	 * Examples.
 	 */
-	public static examples = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	public static flags = {
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly flags = {
 		help: flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	public static args = [
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly args = [
 		{
 			name: 'packages',
 			required: true,
@@ -42,6 +46,7 @@ export default class Install extends Command {
 	/**
 	 * Allow variable length arguments.
 	 */
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly strict = false;
 
 	/**

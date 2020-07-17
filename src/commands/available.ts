@@ -12,24 +12,30 @@ export default class Obsolete extends Command {
 	/**
 	 * Description.
 	 */
-	public static description = 'list the available packages not installed';
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly description = (
+		'list the available packages not installed'
+	);
 
 	/**
 	 * Examples.
 	 */
-	public static examples = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	public static flags = {
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly flags = {
 		help: flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	public static args = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly args = [];
 
 	/**
 	 * Handler.

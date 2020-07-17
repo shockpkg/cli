@@ -12,17 +12,20 @@ export default class Update extends Command {
 	/**
 	 * Description.
 	 */
-	public static description = 'update the packages list';
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly description = 'update the packages list';
 
 	/**
 	 * Examples.
 	 */
-	public static examples = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	public static flags = {
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly flags = {
 		help: flags.help({char: 'h'}),
 		summary: flags.boolean({
 			char: 's',
@@ -33,7 +36,8 @@ export default class Update extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static args = [];
+	// eslint-disable-next-line @typescript-eslint/naming-convention
+	public static readonly args = [];
 
 	/**
 	 * Handler.
