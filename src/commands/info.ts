@@ -59,6 +59,8 @@ export default class Info extends Command {
 			this.log(`file:      ${pkg.file}`);
 			this.log(`size:      ${pkg.size}`);
 			this.log(`sha256:    ${pkg.sha256}`);
+			this.log(`sha1:      ${pkg.sha1}`);
+			this.log(`md5:       ${pkg.md5}`);
 			this.log(`source:    ${pkg.source}`);
 
 			const parents: string[] = [];
