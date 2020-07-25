@@ -45,8 +45,7 @@ export default class IsObsolete extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(IsObsolete);
+		const {args} = this.parse(IsObsolete);
 		const packageID = args.package;
 
 		const obsolete = await this._manager(async m => {

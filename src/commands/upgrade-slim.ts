@@ -39,8 +39,7 @@ export default class UpgradeSlim extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(UpgradeSlim);
+		this.parse(UpgradeSlim);
 
 		await this._commandUpgrade('slim');
 	}

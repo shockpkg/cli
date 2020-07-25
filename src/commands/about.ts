@@ -48,8 +48,7 @@ export default class About extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags} = this.parse(About);
+		this.parse(About);
 
 		this.log('Version:');
 		this.log(`  ${NAME}: ${VERSION}`);

@@ -39,8 +39,7 @@ export default class Url extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Url);
+		this.parse(Url);
 
 		await this._manager(async m => {
 			this.log(m.packagesUrl);

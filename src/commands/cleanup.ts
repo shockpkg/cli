@@ -41,8 +41,7 @@ export default class Cleanup extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Cleanup);
+		this.parse(Cleanup);
 
 		await this._manager(async m => {
 			m.eventPackageCleanupBefore.on(e => {

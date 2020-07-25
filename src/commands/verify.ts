@@ -45,8 +45,7 @@ export default class Verify extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Verify);
+		const {args} = this.parse(Verify);
 		const packageID = args.package;
 
 		await this._manager(async m => m.packageInstallVerify(packageID));

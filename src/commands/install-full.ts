@@ -51,8 +51,7 @@ export default class InstallFull extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(InstallFull);
+		const {argv} = this.parse(InstallFull);
 
 		await this._commandInstall(argv, 'full');
 	}

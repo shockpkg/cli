@@ -45,8 +45,7 @@ export default class IsInstalled extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(IsInstalled);
+		const {args} = this.parse(IsInstalled);
 		const packageID = args.package;
 
 		const installed = await this._manager(

@@ -45,8 +45,7 @@ export default class File extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(File);
+		const {args} = this.parse(File);
 		const packageID = args.package;
 
 		const file = await this._manager(

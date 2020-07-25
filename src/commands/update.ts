@@ -43,8 +43,7 @@ export default class Update extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Update);
+		const {flags} = this.parse(Update);
 		const {summary} = flags;
 
 		const {updated, added, removed} = await this._manager(

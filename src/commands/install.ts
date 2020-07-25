@@ -53,8 +53,7 @@ export default class Install extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Install);
+		const {argv} = this.parse(Install);
 
 		await this._commandInstall(argv, 'best');
 	}

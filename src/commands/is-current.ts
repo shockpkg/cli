@@ -47,8 +47,7 @@ export default class IsCurrent extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(IsCurrent);
+		const {args} = this.parse(IsCurrent);
 		const packageID = args.package;
 
 		const current = await this._manager(async m => {

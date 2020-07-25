@@ -51,8 +51,7 @@ export default class Remove extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Remove);
+		const {argv} = this.parse(Remove);
 
 		await this._manager(async m => {
 			for (const pkg of argv) {

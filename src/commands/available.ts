@@ -41,8 +41,7 @@ export default class Obsolete extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {args, flags, argv} = this.parse(Obsolete);
+		this.parse(Obsolete);
 
 		await this._manager(async m => {
 			const installed = await m.installed();
