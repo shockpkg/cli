@@ -15,6 +15,7 @@ export * from './commands/installed';
 export * from './commands/is-current';
 export * from './commands/is-installed';
 export * from './commands/is-obsolete';
+export * from './commands/list';
 export * from './commands/obsolete';
 export * from './commands/outdated';
 export * from './commands/path';

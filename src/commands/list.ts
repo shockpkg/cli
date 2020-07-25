@@ -6,9 +6,9 @@ import {
 } from '../command';
 
 /**
- * Obsolete command.
+ * List command.
  */
-export default class Obsolete extends Command {
+export default class List extends Command {
 	/**
 	 * Description.
 	 */
@@ -41,7 +41,7 @@ export default class Obsolete extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		this.parse(Obsolete);
+		this.parse(List);
 
 		await this._manager(async m => {
 			for (const pkg of m.packageItter()) {
