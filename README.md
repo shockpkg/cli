@@ -24,7 +24,7 @@ $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
 $ shockpkg (-v|--version|version)
-@shockpkg/cli/1.3.3 darwin-x64 node-v14.5.0
+@shockpkg/cli/1.3.3 darwin-x64 node-v14.6.0
 $ shockpkg --help [COMMAND]
 USAGE
   $ shockpkg COMMAND
@@ -48,6 +48,7 @@ USAGE
 * [`shockpkg is-current PACKAGE`](#shockpkg-is-current-package)
 * [`shockpkg is-installed PACKAGE`](#shockpkg-is-installed-package)
 * [`shockpkg is-obsolete PACKAGE`](#shockpkg-is-obsolete-package)
+* [`shockpkg list`](#shockpkg-list)
 * [`shockpkg obsolete`](#shockpkg-obsolete)
 * [`shockpkg outdated`](#shockpkg-outdated)
 * [`shockpkg path`](#shockpkg-path)
@@ -267,6 +268,20 @@ OPTIONS
 ```
 
 _See code: [src/commands/is-obsolete.ts](https://github.com/shockpkg/cli/blob/v1.3.3/src/commands/is-obsolete.ts)_
+
+## `shockpkg list`
+
+list all the packages in the package list
+
+```
+USAGE
+  $ shockpkg list
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/list.ts](https://github.com/shockpkg/cli/blob/v1.3.3/src/commands/list.ts)_
 
 ## `shockpkg obsolete`
 
