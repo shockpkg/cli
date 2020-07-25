@@ -72,10 +72,8 @@ export abstract class Command extends CommandBase {
 			}
 
 			// Otherwise, display error message if possible, otherwise throw.
-			if (err && (err.message || err.message === '')) {
-				this.error(err.message);
-				// eslint-disable-next-line no-undefined
-				return undefined;
+			if (err && 'message' in err) {
+				return this.error(err.message);
 			}
 			throw err;
 		}
@@ -206,7 +204,13 @@ export abstract class Command extends CommandBase {
 	 * @returns Return value of the handler function.
 	 */
 	protected async _manager<T>(handler: (manager: Manager) => Promise<T>) {
-		return (new Manager()).with(handler);
+		const manager = new Manager();
+		manager.eventPackageListError.on(err => {
+			this.warn(
+				`Failed to read existing package list: ${err.message}`
+			);
+		});
+		return manager.with(handler);
 	}
 
 	/**
