@@ -24,7 +24,7 @@ $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
 $ shockpkg (-v|--version|version)
-@shockpkg/cli/1.5.0 darwin-x64 node-v14.6.0
+@shockpkg/cli/1.5.0 darwin-x64 node-v14.11.0
 $ shockpkg --help [COMMAND]
 USAGE
   $ shockpkg COMMAND
@@ -134,7 +134,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.1.0/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
 
 ## `shockpkg info PACKAGE`
 
