@@ -9,7 +9,7 @@ The shockpkg CLI
 [![size](https://packagephobia.now.sh/badge?p=@shockpkg/cli)](https://packagephobia.now.sh/result?p=@shockpkg/cli)
 [![downloads](https://img.shields.io/npm/dm/@shockpkg/cli.svg)](https://npmcharts.com/compare/@shockpkg/cli?minimal=true)
 
-[![travis-ci](https://travis-ci.com/shockpkg/cli.svg?branch=master)](https://travis-ci.com/shockpkg/cli)
+[![Build Status](https://github.com/shockpkg/cli/workflows/main/badge.svg?branch=master)](https://github.com/shockpkg/cli/actions?query=workflow%3Amain+branch%3Amaster)
 
 
 # Overview
