@@ -45,7 +45,7 @@
 	"repository": "https://github.com/shockpkg/cli.git",
 	"bugs": "https://github.com/shockpkg/cli/issues",
 	"author": "JrMasterModelBuilder",
-	"copyright": "Copyright (c) 2018-2020 JrMasterModelBuilder",
+	"copyright": "Copyright (c) 2018-2021 JrMasterModelBuilder",
 	"license": "MPL-2.0",
 	"dependencies": {
 		"@babel/runtime": "^7.13.10",
@@ -103,6 +103,6 @@
 		"plugins": [
 			"@oclif/plugin-help"
 		],
-		"description": "shockpkg - shockpkg CLI\nCopyright (c) 2018-2020 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
+		"description": "shockpkg - shockpkg CLI\nCopyright (c) 2018-2021 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
 	}
 }
