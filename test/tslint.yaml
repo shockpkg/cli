@@ -1,5 +1,5 @@
 extends:
-- ../tslint.yaml
+  - ../tslint.yaml
 
 linterOptions:
   exclude:
@@ -10,7 +10,7 @@ formattersDirectory:
 
 rules:
   no-implicit-dependencies:
-  - true
-  - dev
+    - true
+    - dev
 
 jsRules:

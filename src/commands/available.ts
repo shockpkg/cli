@@ -1,21 +1,17 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
- * Obsolete command.
+ * Available command.
  */
-export default class Obsolete extends Command {
+export class Available extends Command {
 	/**
 	 * Description.
 	 */
 	// eslint-disable-next-line @typescript-eslint/naming-convention
-	public static readonly description = (
-		'list the available packages not installed'
-	);
+	public static readonly description =
+		'list the available packages not installed';
 
 	/**
 	 * Examples.
@@ -41,7 +37,7 @@ export default class Obsolete extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		this.parse(Obsolete);
+		this.parse(Available);
 
 		await this._manager(async m => {
 			const installed = await m.installed();
@@ -55,3 +51,4 @@ export default class Obsolete extends Command {
 		});
 	}
 }
+export default Available;

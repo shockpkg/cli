@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * IsInstalled command.
  */
-export default class IsInstalled extends Command {
+export class IsInstalled extends Command {
 	/**
 	 * Description.
 	 */
@@ -46,10 +43,10 @@ export default class IsInstalled extends Command {
 	 */
 	public async run() {
 		const {args} = this.parse(IsInstalled);
-		const packageID = args.package;
+		const packageID = args.package as string;
 
-		const installed = await this._manager(
-			async m => m.isInstalled(packageID)
+		const installed = await this._manager(async m =>
+			m.isInstalled(packageID)
 		);
 		if (!installed) {
 			throw new Error('Package is not installed');
@@ -57,3 +54,4 @@ export default class IsInstalled extends Command {
 		this.log('installed');
 	}
 }
+export default IsInstalled;

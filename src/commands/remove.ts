@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Remove command.
  */
-export default class Remove extends Command {
+export class Remove extends Command {
 	/**
 	 * Description.
 	 */
@@ -65,3 +62,4 @@ export default class Remove extends Command {
 		});
 	}
 }
+export default Remove;

@@ -1,5 +1,5 @@
 export interface IProgressTime {
-
+	//
 	/**
 	 * Start time.
 	 */
@@ -22,7 +22,7 @@ export interface IProgressTime {
 }
 
 export interface IProgressTotal {
-
+	//
 	/**
 	 * Total amount.
 	 */
@@ -51,9 +51,6 @@ export type ProgressCallback = (
 
 /**
  * Progress wrapper.
- *
- * @param total Total progress.
- * @param current Starting progress.
  */
 export class Progress extends Object {
 	/**
@@ -91,6 +88,12 @@ export class Progress extends Object {
 	 */
 	protected _prevCurrent: number = 0;
 
+	/**
+	 * Progress constructor.
+	 *
+	 * @param total Total progress.
+	 * @param current Starting progress.
+	 */
 	constructor(total: number, current: number = 0) {
 		super();
 
@@ -132,10 +135,7 @@ export class Progress extends Object {
 	 * @param interval Update interval in miliseconds.
 	 * @param cb Progress callback.
 	 */
-	public start(
-		interval: number,
-		cb: ProgressCallback
-	) {
+	public start(interval: number, cb: ProgressCallback) {
 		if (this._interval) {
 			throw new Error('Already started');
 		}
@@ -156,6 +156,7 @@ export class Progress extends Object {
 	 */
 	public end() {
 		if (this._interval) {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 			clearInterval(this._interval);
 			this._interval = null;
 		}

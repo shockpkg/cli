@@ -1,10 +1,6 @@
 import * as command from '@oclif/command';
 import sourceMapSupport from 'source-map-support';
-import {
-	Manager,
-	Package,
-	IPackageInstalled
-} from '@shockpkg/core';
+import {Manager, Package, IPackageInstalled} from '@shockpkg/core';
 
 import {
 	DEBUG_STACK_TRACE_ENV,
@@ -12,23 +8,18 @@ import {
 	UPDATE_INTERVAL_DEFAULT,
 	UPDATE_INTERVAL_ENV
 } from './constants';
-import {
-	divmod,
-	envTrue,
-	envInteger
-} from './util';
-import {
-	Progress,
-	ProgressCallback
-} from './progress';
+import {divmod, envTrue, envInteger} from './util';
+import {Progress, ProgressCallback} from './progress';
 
 // Compensate for ESM and CJS module loader differences.
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 const CommandBase = command.Command || (command as any).default.Command;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 export const flags = command.flags || (command as any).default.flags;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 export const run = command.run || (command as any).default.run;
 
-const noRangeHeadersErrorMessage =
-	'Unexpected status code: 200 expected: 206';
+const noRangeHeadersErrorMessage = 'Unexpected status code: 200 expected: 206';
 
 const failedInstallSlimTryFullMessage =
 	'Failed to stream using slim method, trying full';
@@ -58,11 +49,11 @@ export abstract class Command extends CommandBase {
 	 */
 	public async catch(err: any) {
 		try {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 			return await super.catch(err);
-		}
-		catch (err) {
+		} catch (err) {
 			// Always throw oclif errors.
-			if (err.oclif) {
+			if (err && (err as {oclif: unknown}).oclif) {
 				throw err;
 			}
 
@@ -73,7 +64,7 @@ export abstract class Command extends CommandBase {
 
 			// Otherwise, display error message if possible, otherwise throw.
 			if (err && 'message' in err) {
-				return this.error(err.message);
+				return this.error((err as {message: string}).message);
 			}
 			throw err;
 		}
@@ -86,7 +77,7 @@ export abstract class Command extends CommandBase {
 	 */
 	protected _updateInterval() {
 		const env = envInteger(UPDATE_INTERVAL_ENV);
-		return (env && env > 0) ? env : UPDATE_INTERVAL_DEFAULT;
+		return env && env > 0 ? env : UPDATE_INTERVAL_DEFAULT;
 	}
 
 	/**
@@ -141,6 +132,13 @@ export abstract class Command extends CommandBase {
 	 */
 	protected _transferProgressOutputInit() {
 		let messageLongest = 0;
+
+		/**
+		 * Progress callback.
+		 *
+		 * @param time Time.
+		 * @param total Total.
+		 */
 		const r: ProgressCallback = (time, total) => {
 			// Calcaulte the time spent.
 			const timePast = this._transferSecondsHuman(time.duration);
@@ -166,13 +164,9 @@ export abstract class Command extends CommandBase {
 			const timeETA = this._transferSecondsHuman(timeLeftMs);
 
 			// Assemble message.
-			const message = [
-				timePast,
-				percent,
-				amount,
-				bytesSec,
-				timeETA
-			].join('  ');
+			const message = [timePast, percent, amount, bytesSec, timeETA].join(
+				'  '
+			);
 
 			// Remember the longest message.
 			messageLongest = Math.max(messageLongest, message.length);
@@ -180,8 +174,7 @@ export abstract class Command extends CommandBase {
 
 			if (this._isInteractive()) {
 				process.stdout.write(`\r  ${messagePadded}\r`);
-			}
-			else {
+			} else {
 				this.log(messagePadded);
 			}
 		};
@@ -206,9 +199,7 @@ export abstract class Command extends CommandBase {
 	protected async _manager<T>(handler: (manager: Manager) => Promise<T>) {
 		const manager = new Manager();
 		manager.eventPackageListError.on(err => {
-			this.warn(
-				`Failed to read existing package list: ${err.message}`
-			);
+			this.warn(`Failed to read existing package list: ${err.message}`);
 		});
 		return manager.with(handler);
 	}
@@ -332,8 +323,7 @@ export abstract class Command extends CommandBase {
 		for (const pkg of report) {
 			if (pkg.installed) {
 				installed++;
-			}
-			else {
+			} else {
 				skipped++;
 			}
 		}
@@ -355,24 +345,44 @@ export abstract class Command extends CommandBase {
 		let installer: (m: Manager, pkg: Package) => Promise<Package[]>;
 		switch (method) {
 			case 'slim': {
+				/**
+				 * Installer function.
+				 *
+				 * @param m Manager.
+				 * @param pkg Package.
+				 */
 				installer = async (m, pkg) => m.installSlim(pkg);
 				break;
 			}
 			case 'full': {
+				/**
+				 * Installer function.
+				 *
+				 * @param m Manager.
+				 * @param pkg Package.
+				 */
 				installer = async (m, pkg) => m.installFull(pkg);
 				break;
 			}
 			case 'best': {
+				/**
+				 * Installer function.
+				 *
+				 * @param m Manager.
+				 * @param pkg Package.
+				 */
 				installer = async (m, pkg) => {
 					try {
 						const r = await m.installSlim(pkg);
 						return r;
-					}
-					catch (err) {
-						if (err && err.message === noRangeHeadersErrorMessage) {
+					} catch (err) {
+						if (
+							err &&
+							(err as {message: string}).message ===
+								noRangeHeadersErrorMessage
+						) {
 							this.warn(failedInstallSlimTryFullMessage);
-						}
-						else {
+						} else {
 							throw err;
 						}
 					}

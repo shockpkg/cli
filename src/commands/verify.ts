@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Verify command.
  */
-export default class Verify extends Command {
+export class Verify extends Command {
 	/**
 	 * Description.
 	 */
@@ -46,10 +43,11 @@ export default class Verify extends Command {
 	 */
 	public async run() {
 		const {args} = this.parse(Verify);
-		const packageID = args.package;
+		const packageID = args.package as string;
 
 		await this._manager(async m => m.packageInstallVerify(packageID));
 
 		this.log('verified');
 	}
 }
+export default Verify;

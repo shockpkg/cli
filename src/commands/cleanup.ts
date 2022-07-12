@@ -1,21 +1,17 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Cleanup command.
  */
-export default class Cleanup extends Command {
+export class Cleanup extends Command {
 	/**
 	 * Description.
 	 */
 	// eslint-disable-next-line @typescript-eslint/naming-convention
-	public static readonly description = (
-		'cleanup temporary files and obsolete packages'
-	);
+	public static readonly description =
+		'cleanup temporary files and obsolete packages';
 
 	/**
 	 * Examples.
@@ -57,3 +53,4 @@ export default class Cleanup extends Command {
 		});
 	}
 }
+export default Cleanup;

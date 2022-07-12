@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Info command.
  */
-export default class Info extends Command {
+export class Info extends Command {
 	/**
 	 * Description.
 	 */
@@ -46,7 +43,7 @@ export default class Info extends Command {
 	 */
 	public async run() {
 		const {args} = this.parse(Info);
-		const packageID = args.package;
+		const packageID = args.package as string;
 
 		await this._manager(async m => {
 			const pkg = m.packageByUnique(packageID);
@@ -70,7 +67,7 @@ export default class Info extends Command {
 				this.log(`parents:   ${parents.join(' > ')}`);
 			}
 
-			if (!await m.isInstalled(pkg)) {
+			if (!(await m.isInstalled(pkg))) {
 				return;
 			}
 
@@ -78,7 +75,8 @@ export default class Info extends Command {
 			this.log(`installed: ${install}`);
 
 			const current = await m.isCurrent(pkg);
-			this.log(`current:   ${current}`);
+			this.log(`current:   ${current ? 'true' : 'false'}`);
 		});
 	}
 }
+export default Info;

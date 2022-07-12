@@ -1,21 +1,17 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * IsCurrent command.
  */
-export default class IsCurrent extends Command {
+export class IsCurrent extends Command {
 	/**
 	 * Description.
 	 */
 	// eslint-disable-next-line @typescript-eslint/naming-convention
-	public static readonly description = (
-		'check package is installed and current'
-	);
+	public static readonly description =
+		'check package is installed and current';
 
 	/**
 	 * Examples.
@@ -48,7 +44,7 @@ export default class IsCurrent extends Command {
 	 */
 	public async run() {
 		const {args} = this.parse(IsCurrent);
-		const packageID = args.package;
+		const packageID = args.package as string;
 
 		const current = await this._manager(async m => {
 			const installed = await m.isInstalled(packageID);
@@ -63,3 +59,4 @@ export default class IsCurrent extends Command {
 		this.log('installed');
 	}
 }
+export default IsCurrent;

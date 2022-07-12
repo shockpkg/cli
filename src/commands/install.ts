@@ -1,21 +1,17 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Install command.
  */
-export default class Install extends Command {
+export class Install extends Command {
 	/**
 	 * Description.
 	 */
 	// eslint-disable-next-line @typescript-eslint/naming-convention
-	public static readonly description = (
-		'install packages, slim method, fallback on full method'
-	);
+	public static readonly description =
+		'install packages, slim method, fallback on full method';
 
 	/**
 	 * Examples.
@@ -58,3 +54,4 @@ export default class Install extends Command {
 		await this._commandInstall(argv, 'best');
 	}
 }
+export default Install;

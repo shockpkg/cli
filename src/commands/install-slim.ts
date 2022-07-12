@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * InstallSlim command.
  */
-export default class InstallSlim extends Command {
+export class InstallSlim extends Command {
 	/**
 	 * Description.
 	 */
@@ -56,3 +53,4 @@ export default class InstallSlim extends Command {
 		await this._commandInstall(argv, 'slim');
 	}
 }
+export default InstallSlim;

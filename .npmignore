@@ -18,6 +18,9 @@ report.*.json
 yarn.lock
 .nvmrc
 
+# IDE config
+.vscode
+
 # Test files
 /shockpkg
 

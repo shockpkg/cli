@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Update command.
  */
-export default class Update extends Command {
+export class Update extends Command {
 	/**
 	 * Description.
 	 */
@@ -46,8 +43,8 @@ export default class Update extends Command {
 		const {flags} = this.parse(Update);
 		const {summary} = flags;
 
-		const {updated, added, removed} = await this._manager(
-			async m => m.update()
+		const {updated, added, removed} = await this._manager(async m =>
+			m.update()
 		);
 		const listed = [
 			{
@@ -82,3 +79,4 @@ export default class Update extends Command {
 		}
 	}
 }
+export default Update;

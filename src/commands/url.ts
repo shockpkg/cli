@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Url command.
  */
-export default class Url extends Command {
+export class Url extends Command {
 	/**
 	 * Description.
 	 */
@@ -41,8 +38,10 @@ export default class Url extends Command {
 	public async run() {
 		this.parse(Url);
 
+		// eslint-disable-next-line @typescript-eslint/require-await
 		await this._manager(async m => {
 			this.log(m.packagesUrl);
 		});
 	}
 }
+export default Url;

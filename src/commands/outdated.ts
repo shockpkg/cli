@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * Outdated command.
  */
-export default class Outdated extends Command {
+export class Outdated extends Command {
 	/**
 	 * Description.
 	 */
@@ -48,3 +45,4 @@ export default class Outdated extends Command {
 		}
 	}
 }
+export default Outdated;

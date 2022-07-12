@@ -10,13 +10,12 @@ The shockpkg CLI
 
 [![Build Status](https://github.com/shockpkg/cli/workflows/main/badge.svg?branch=master)](https://github.com/shockpkg/cli/actions?query=workflow%3Amain+branch%3Amaster)
 
-
 # Overview
 
 The CLI package manager for shockpkg packages.
 
-
 # Usage
+
 <!-- usage -->
 ```sh-session
 $ npm install -g @shockpkg/cli
@@ -31,8 +30,8 @@ USAGE
 ```
 <!-- usagestop -->
 
-
 # Commands
+
 <!-- commands -->
 * [`shockpkg about`](#shockpkg-about)
 * [`shockpkg available`](#shockpkg-available)
@@ -430,11 +429,9 @@ OPTIONS
 _See code: [src/commands/verify.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/verify.ts)_
 <!-- commandsstop -->
 
-
 # Bugs
 
 If you find a bug or have compatibility issues, please open a ticket under issues section for this repository.
-
 
 # License
 

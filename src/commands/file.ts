@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * File command.
  */
-export default class File extends Command {
+export class File extends Command {
 	/**
 	 * Description.
 	 */
@@ -46,12 +43,13 @@ export default class File extends Command {
 	 */
 	public async run() {
 		const {args} = this.parse(File);
-		const packageID = args.package;
+		const packageID = args.package as string;
 
-		const file = await this._manager(
-			async m => m.packageInstallFile(packageID)
+		const file = await this._manager(async m =>
+			m.packageInstallFile(packageID)
 		);
 
 		this.log(file);
 	}
 }
+export default File;

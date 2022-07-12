@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * InstallFull command.
  */
-export default class InstallFull extends Command {
+export class InstallFull extends Command {
 	/**
 	 * Description.
 	 */
@@ -56,3 +53,4 @@ export default class InstallFull extends Command {
 		await this._commandInstall(argv, 'full');
 	}
 }
+export default InstallFull;

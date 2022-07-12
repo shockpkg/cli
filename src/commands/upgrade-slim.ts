@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * UpgradeSlim command.
  */
-export default class UpgradeSlim extends Command {
+export class UpgradeSlim extends Command {
 	/**
 	 * Description.
 	 */
@@ -44,3 +41,4 @@ export default class UpgradeSlim extends Command {
 		await this._commandUpgrade('slim');
 	}
 }
+export default UpgradeSlim;

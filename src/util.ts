@@ -33,8 +33,7 @@ export function envBool(name: string) {
 	if (v) {
 		if (/^(1|true|yes)$/i.test(v)) {
 			return true;
-		}
-		else if (/^(0|false|no)$/i.test(v)) {
+		} else if (/^(0|false|no)$/i.test(v)) {
 			return false;
 		}
 	}

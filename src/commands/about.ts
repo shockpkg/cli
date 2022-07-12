@@ -5,19 +5,13 @@ import {
 	VERSION as SHOCKPKG_CORE_VERSION
 } from '@shockpkg/core';
 
-import {
-	NAME,
-	VERSION
-} from '../meta';
-import {
-	Command,
-	flags
-} from '../command';
+import {NAME, VERSION} from '../meta';
+import {Command, flags} from '../command';
 
 /**
  * About command.
  */
-export default class About extends Command {
+export class About extends Command {
 	/**
 	 * Description.
 	 */
@@ -56,17 +50,16 @@ export default class About extends Command {
 		this.log('');
 
 		this.log('Library Versions:');
-		for (const info of [
-			[SHOCKPKG_CORE_NAME, SHOCKPKG_CORE_VERSION]
-		]) {
+		for (const info of [[SHOCKPKG_CORE_NAME, SHOCKPKG_CORE_VERSION]]) {
 			this.log(`  ${info[0]}: ${info[1]}`);
 		}
 
 		this.log('');
 
 		this.log('Info:');
+		// eslint-disable-next-line @typescript-eslint/require-await
 		await this._manager(async m => {
-			this.log(`  Packages Loaded: ${m.loaded}`);
+			this.log(`  Packages Loaded: ${m.loaded ? 'true' : 'false'}`);
 			this.log(`  Install Path: ${m.path}`);
 			this.log(`  Packages URL: ${m.packagesUrl}`);
 		});
@@ -74,3 +67,4 @@ export default class About extends Command {
 		this.log('');
 	}
 }
+export default About;

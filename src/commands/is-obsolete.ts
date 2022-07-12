@@ -1,14 +1,11 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * IsObsolete command.
  */
-export default class IsObsolete extends Command {
+export class IsObsolete extends Command {
 	/**
 	 * Description.
 	 */
@@ -46,7 +43,7 @@ export default class IsObsolete extends Command {
 	 */
 	public async run() {
 		const {args} = this.parse(IsObsolete);
-		const packageID = args.package;
+		const packageID = args.package as string;
 
 		const obsolete = await this._manager(async m => {
 			const installed = await m.isInstalled(packageID);
@@ -61,3 +58,4 @@ export default class IsObsolete extends Command {
 		this.log('obsolete');
 	}
 }
+export default IsObsolete;

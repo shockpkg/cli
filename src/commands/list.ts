@@ -1,21 +1,17 @@
 /* eslint-disable import/no-default-export */
 
-import {
-	Command,
-	flags
-} from '../command';
+import {Command, flags} from '../command';
 
 /**
  * List command.
  */
-export default class List extends Command {
+export class List extends Command {
 	/**
 	 * Description.
 	 */
 	// eslint-disable-next-line @typescript-eslint/naming-convention
-	public static readonly description = (
-		'list all the packages in the package list'
-	);
+	public static readonly description =
+		'list all the packages in the package list';
 
 	/**
 	 * Examples.
@@ -43,6 +39,7 @@ export default class List extends Command {
 	public async run() {
 		this.parse(List);
 
+		// eslint-disable-next-line @typescript-eslint/require-await
 		await this._manager(async m => {
 			for (const pkg of m.packageItter()) {
 				this.log(pkg.name);
@@ -50,3 +47,4 @@ export default class List extends Command {
 		});
 	}
 }
+export default List;
