@@ -36,6 +36,8 @@
 	"scripts": {
 		"clean": "gulp clean",
 		"lint": "gulp lint",
+		"format": "gulp format",
+		"formatted": "gulp formatted",
 		"build": "gulp build",
 		"test": "gulp test",
 		"all": "gulp all",
