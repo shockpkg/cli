@@ -185,11 +185,9 @@ gulp.task(
 
 // test
 
-gulp.task('test:node', async () => {
+gulp.task('test', async () => {
 	await exec('jasmine');
 });
-
-gulp.task('test', gulp.parallel(['test:node']));
 
 // watch
 
