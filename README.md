@@ -1,4 +1,4 @@
-# cli
+# shockpkg cli
 
 The shockpkg CLI
 
