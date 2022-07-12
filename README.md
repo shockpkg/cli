@@ -5,7 +5,6 @@ The shockpkg CLI
 [![npm](https://img.shields.io/npm/v/@shockpkg/cli.svg)](https://npmjs.com/package/@shockpkg/cli)
 [![node](https://img.shields.io/node/v/@shockpkg/cli.svg)](https://nodejs.org)
 
-[![dependencies](https://img.shields.io/david/shockpkg/cli)](https://david-dm.org/shockpkg/cli)
 [![size](https://packagephobia.now.sh/badge?p=@shockpkg/cli)](https://packagephobia.now.sh/result?p=@shockpkg/cli)
 [![downloads](https://img.shields.io/npm/dm/@shockpkg/cli.svg)](https://npmcharts.com/compare/@shockpkg/cli?minimal=true)
 
