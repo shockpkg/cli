@@ -6,7 +6,8 @@ import {
 	DEBUG_STACK_TRACE_ENV,
 	DEBUG_SOURCE_MAPS_ENV,
 	UPDATE_INTERVAL_DEFAULT,
-	UPDATE_INTERVAL_ENV
+	UPDATE_INTERVAL_ENV,
+	DEBUG_ERROR_LOG
 } from './constants';
 import {divmod, envTrue, envInteger} from './util';
 import {Progress, ProgressCallback} from './progress';
@@ -23,6 +24,10 @@ export abstract class Command extends CommandBase {
 	 * @returns Return data.
 	 */
 	public async init() {
+		if (!envTrue(DEBUG_ERROR_LOG)) {
+			this.config.errlog = '';
+		}
+
 		if (envTrue(DEBUG_SOURCE_MAPS_ENV)) {
 			sourceMapSupport.install();
 		}
