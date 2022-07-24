@@ -7,14 +7,6 @@ jobs:
     strategy:
       matrix:
         config:
-          - node-version: '10.13.0' # LTS
-            NO_FORMATTED: 1
-            NO_LINT: 1
-
-          - node-version: '12.13.0' # LTS
-            NO_FORMATTED: 1
-            NO_LINT: 1
-
           - node-version: '14.15.0' # LTS
             NO_FORMATTED: 1
             NO_LINT: 1
