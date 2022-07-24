@@ -51,7 +51,15 @@ export class Install extends Command {
 	public async run() {
 		const {argv} = this.parse(Install);
 
-		await this._commandInstall(argv);
+		const report = await this._manager(async m => {
+			this._installEvents(m, 'install');
+			return m.installMulti(argv);
+		});
+
+		const {installed, skipped} = this._installReportCounts(report);
+		this.log('');
+		this.log(`installed: ${installed}`);
+		this.log(`skipped: ${skipped}`);
 	}
 }
 export default Install;

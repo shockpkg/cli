@@ -38,7 +38,14 @@ export class Upgrade extends Command {
 	public async run() {
 		this.parse(Upgrade);
 
-		await this._commandUpgrade();
+		const report = await this._manager(async m => {
+			this._installEvents(m, 'upgrade');
+			return m.upgrade();
+		});
+		const {installed, skipped} = this._installReportCounts(report);
+		this.log('');
+		this.log(`upgraded: ${installed}`);
+		this.log(`skipped: ${skipped}`);
 	}
 }
 export default Upgrade;

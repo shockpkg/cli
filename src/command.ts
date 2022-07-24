@@ -308,35 +308,4 @@ export abstract class Command extends CommandBase {
 			skipped
 		};
 	}
-
-	/**
-	 * Shared install command runner.
-	 *
-	 * @param packages Pacakges list.
-	 */
-	protected async _commandInstall(packages: string[]) {
-		const report = await this._manager(async m => {
-			this._installEvents(m, 'install');
-			return m.installMulti(packages);
-		});
-
-		const {installed, skipped} = this._installReportCounts(report);
-		this.log('');
-		this.log(`installed: ${installed}`);
-		this.log(`skipped: ${skipped}`);
-	}
-
-	/**
-	 * Shared upgrade command runner.
-	 */
-	protected async _commandUpgrade() {
-		const report = await this._manager(async m => {
-			this._installEvents(m, 'upgrade');
-			return m.upgrade();
-		});
-		const {installed, skipped} = this._installReportCounts(report);
-		this.log('');
-		this.log(`upgraded: ${installed}`);
-		this.log(`skipped: ${skipped}`);
-	}
 }
