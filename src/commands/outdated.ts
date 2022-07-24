@@ -9,7 +9,7 @@ export class Outdated extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'list the outdated packages';
+	public static readonly description = 'List outdated installed packages.';
 
 	/**
 	 * Examples.

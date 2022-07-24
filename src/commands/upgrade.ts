@@ -9,7 +9,7 @@ export class Upgrade extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'install packages, slim method';
+	public static readonly description = 'Upgrade all outdated packages.';
 
 	/**
 	 * Examples.

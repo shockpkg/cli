@@ -10,7 +10,7 @@ export class List extends Command {
 	 * Description.
 	 */
 	public static readonly description =
-		'list all the packages in the package list';
+		'List all the packages in the package list.';
 
 	/**
 	 * Examples.

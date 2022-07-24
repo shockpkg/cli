@@ -9,7 +9,7 @@ export class Remove extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'remove packages';
+	public static readonly description = 'Remove packages.';
 
 	/**
 	 * Examples.
@@ -30,7 +30,7 @@ export class Remove extends Command {
 		{
 			name: 'packages',
 			required: true,
-			description: 'list of packages to be removed'
+			description: 'List of packages to be removed.'
 		}
 	];
 

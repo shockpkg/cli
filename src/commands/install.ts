@@ -9,8 +9,7 @@ export class Install extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description =
-		'install packages, slim method, fallback on full method';
+	public static readonly description = 'Install packages.';
 
 	/**
 	 * Examples.
@@ -31,7 +30,7 @@ export class Install extends Command {
 		{
 			name: 'packages',
 			required: true,
-			description: 'list of packages to be installed'
+			description: 'List of packages to be installed.'
 		}
 	];
 

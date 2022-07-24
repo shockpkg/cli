@@ -9,7 +9,7 @@ export class Installed extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'list the installed packages';
+	public static readonly description = 'List the installed packages.';
 
 	/**
 	 * Examples.

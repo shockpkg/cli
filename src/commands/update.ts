@@ -9,7 +9,7 @@ export class Update extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'update the packages list';
+	public static readonly description = 'Update the packages list.';
 
 	/**
 	 * Examples.
@@ -23,7 +23,7 @@ export class Update extends Command {
 		help: Flags.help({char: 'h'}),
 		summary: Flags.boolean({
 			char: 's',
-			description: 'Summarize the updated packages'
+			description: 'Summarize the updated packages.'
 		})
 	};
 

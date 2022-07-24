@@ -9,7 +9,7 @@ export class Verify extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'verify an installed package';
+	public static readonly description = 'Verify an installed package.';
 
 	/**
 	 * Examples.
@@ -30,7 +30,7 @@ export class Verify extends Command {
 		{
 			name: 'package',
 			required: true,
-			description: 'package id'
+			description: 'Package ID.'
 		}
 	];
 

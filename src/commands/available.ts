@@ -10,7 +10,7 @@ export class Available extends Command {
 	 * Description.
 	 */
 	public static readonly description =
-		'list the available packages not installed';
+		'List the available packages not installed.';
 
 	/**
 	 * Examples.

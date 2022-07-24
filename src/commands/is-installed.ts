@@ -9,7 +9,7 @@ export class IsInstalled extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'check package is installed';
+	public static readonly description = 'Check package is installed.';
 
 	/**
 	 * Examples.
@@ -30,7 +30,7 @@ export class IsInstalled extends Command {
 		{
 			name: 'package',
 			required: true,
-			description: 'package id'
+			description: 'Package ID.'
 		}
 	];
 

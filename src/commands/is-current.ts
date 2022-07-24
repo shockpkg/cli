@@ -10,7 +10,7 @@ export class IsCurrent extends Command {
 	 * Description.
 	 */
 	public static readonly description =
-		'check package is installed and current';
+		'Check package is installed and current.';
 
 	/**
 	 * Examples.
@@ -31,7 +31,7 @@ export class IsCurrent extends Command {
 		{
 			name: 'package',
 			required: true,
-			description: 'package id'
+			description: 'Package ID.'
 		}
 	];
 

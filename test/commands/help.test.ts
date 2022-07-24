@@ -6,6 +6,6 @@ describe('help', () => {
 	test.stdout()
 		.command(['help'])
 		.it('runs help', ctx => {
-			expect(ctx.stdout).toContain('shockpkg - shockpkg CLI');
+			expect(ctx.stdout).toContain('shockpkg - The shockpkg CLI');
 		});
 });

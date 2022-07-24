@@ -10,7 +10,7 @@ export class Cleanup extends Command {
 	 * Description.
 	 */
 	public static readonly description =
-		'cleanup temporary files and obsolete packages';
+		'Cleanup temporary files and obsolete packages.';
 
 	/**
 	 * Examples.

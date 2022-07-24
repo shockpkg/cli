@@ -9,7 +9,7 @@ export class Obsolete extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'list the obsolete packages';
+	public static readonly description = 'List obsolete installed packages.';
 
 	/**
 	 * Examples.

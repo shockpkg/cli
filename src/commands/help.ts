@@ -7,7 +7,7 @@ export class HelpCommand extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'display help for <%= config.bin %>';
+	public static readonly description = 'Show CLI help.';
 
 	/**
 	 * Examples.
@@ -20,7 +20,7 @@ export class HelpCommand extends Command {
 	public static readonly flags = {
 		// eslint-disable-next-line @typescript-eslint/naming-convention
 		recursize: Flags.boolean({
-			description: 'include all child commands in output',
+			description: 'Include all child commands in output.',
 			char: 'r'
 		})
 	};
@@ -32,7 +32,7 @@ export class HelpCommand extends Command {
 		{
 			name: 'command',
 			required: false,
-			description: 'command to show help for'
+			description: 'Command to show help for.'
 		}
 	];
 

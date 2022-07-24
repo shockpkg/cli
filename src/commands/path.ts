@@ -9,7 +9,7 @@ export class Path extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'get package manager path';
+	public static readonly description = 'Get package manager path.';
 
 	/**
 	 * Examples.

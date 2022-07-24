@@ -9,7 +9,7 @@ export class Info extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'view info for package';
+	public static readonly description = 'View info for package.';
 
 	/**
 	 * Examples.
@@ -30,7 +30,7 @@ export class Info extends Command {
 		{
 			name: 'package',
 			required: true,
-			description: 'package id'
+			description: 'Package ID.'
 		}
 	];
 

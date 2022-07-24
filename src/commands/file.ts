@@ -9,7 +9,7 @@ export class File extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'get package file path';
+	public static readonly description = 'Get package file path.';
 
 	/**
 	 * Examples.
@@ -30,7 +30,7 @@ export class File extends Command {
 		{
 			name: 'package',
 			required: true,
-			description: 'package id'
+			description: 'Package ID.'
 		}
 	];
 

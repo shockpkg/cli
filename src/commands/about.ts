@@ -15,7 +15,7 @@ export class About extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'display info about program';
+	public static readonly description = 'Show info about CLI.';
 
 	/**
 	 * Examples.

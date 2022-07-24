@@ -7,7 +7,7 @@ export class VersionCommand extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'display version';
+	public static readonly description = 'Show CLI version.';
 
 	/**
 	 * Examples.

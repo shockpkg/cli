@@ -9,7 +9,8 @@ export class Url extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'get package manager package list URL';
+	public static readonly description =
+		'Get package manager package list URL.';
 
 	/**
 	 * Examples.

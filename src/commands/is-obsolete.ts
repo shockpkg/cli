@@ -9,7 +9,7 @@ export class IsObsolete extends Command {
 	/**
 	 * Description.
 	 */
-	public static readonly description = 'check package is obsolete';
+	public static readonly description = 'Check package is obsolete.';
 
 	/**
 	 * Examples.
@@ -30,7 +30,7 @@ export class IsObsolete extends Command {
 		{
 			name: 'package',
 			required: true,
-			description: 'package id'
+			description: 'Package ID.'
 		}
 	];
 

@@ -111,6 +111,6 @@
 		"additionalVersionFlags": [
 			"-v"
 		],
-		"description": "shockpkg - shockpkg CLI\nCopyright (c) 2018-2022 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
+		"description": "shockpkg - The shockpkg CLI\nCopyright (c) 2018-2022 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
 	}
 }
