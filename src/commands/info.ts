@@ -39,12 +39,12 @@ export class Info extends Command {
 	 */
 	public async run() {
 		const {args} = await this.parse(Info);
-		const packageID = args.package as string;
+		const packageId = args.package as string;
 
 		await this._manager(async m => {
-			const pkg = m.packageByUnique(packageID);
+			const pkg = m.packageByUnique(packageId);
 			if (!pkg) {
-				throw new Error(`Unknown package ID: ${packageID}`);
+				throw new Error(`Unknown package ID: ${packageId}`);
 			}
 
 			this.log(`name:      ${pkg.name}`);

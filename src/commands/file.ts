@@ -39,10 +39,10 @@ export class File extends Command {
 	 */
 	public async run() {
 		const {args} = await this.parse(File);
-		const packageID = args.package as string;
+		const packageId = args.package as string;
 
 		const file = await this._manager(async m =>
-			m.packageInstallFile(packageID)
+			m.packageInstallFile(packageId)
 		);
 
 		this.log(file);

@@ -39,10 +39,10 @@ export class IsInstalled extends Command {
 	 */
 	public async run() {
 		const {args} = await this.parse(IsInstalled);
-		const packageID = args.package as string;
+		const packageId = args.package as string;
 
 		const installed = await this._manager(async m =>
-			m.isInstalled(packageID)
+			m.isInstalled(packageId)
 		);
 		if (!installed) {
 			throw new Error('Package is not installed');

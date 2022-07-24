@@ -39,14 +39,14 @@ export class IsObsolete extends Command {
 	 */
 	public async run() {
 		const {args} = await this.parse(IsObsolete);
-		const packageID = args.package as string;
+		const packageId = args.package as string;
 
 		const obsolete = await this._manager(async m => {
-			const installed = await m.isInstalled(packageID);
+			const installed = await m.isInstalled(packageId);
 			if (!installed) {
 				throw new Error('Package is not installed');
 			}
-			return m.isObsolete(packageID);
+			return m.isObsolete(packageId);
 		});
 		if (!obsolete) {
 			throw new Error('Package is not obsolete');
