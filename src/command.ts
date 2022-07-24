@@ -168,7 +168,7 @@ export abstract class Command extends CommandBase {
 			const messagePadded = message.padEnd(messageLongest, ' ');
 
 			if (this._isInteractive()) {
-				process.stdout.write(`\r  ${messagePadded}\r`);
+				process.stdout.write(`\r${messagePadded}\r`);
 			} else {
 				this.log(messagePadded);
 			}
