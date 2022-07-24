@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, flags} from '../command';
+import {Command, Flags} from '../command';
 
 /**
  * IsInstalled command.
@@ -9,27 +9,23 @@ export class IsInstalled extends Command {
 	/**
 	 * Description.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly description = 'check package is installed';
 
 	/**
 	 * Examples.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly flags = {
-		help: flags.help({char: 'h'})
+		help: Flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly args = [
 		{
 			name: 'package',
@@ -42,7 +38,7 @@ export class IsInstalled extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		const {args} = this.parse(IsInstalled);
+		const {args} = await this.parse(IsInstalled);
 		const packageID = args.package as string;
 
 		const installed = await this._manager(async m =>

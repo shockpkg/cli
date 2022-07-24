@@ -150,19 +150,17 @@ gulp.task('build:esm', async () => {
 });
 
 gulp.task('build:manifest', async () => {
-	await exec('oclif-dev', ['manifest']);
+	await exec('oclif', ['manifest']);
 });
 
 gulp.task('build:readme', async () => {
-	await exec('oclif-dev', ['readme']);
+	await exec('oclif', ['readme']);
 });
 
 gulp.task(
 	'build',
-	gulp.parallel([
-		'build:dts',
-		'build:cjs',
-		'build:esm',
+	gulp.series([
+		gulp.parallel(['build:dts', 'build:cjs', 'build:esm']),
 		'build:manifest',
 		'build:readme'
 	])

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, flags} from '../command';
+import {Command, Flags} from '../command';
 
 /**
  * IsCurrent command.
@@ -9,28 +9,24 @@ export class IsCurrent extends Command {
 	/**
 	 * Description.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly description =
 		'check package is installed and current';
 
 	/**
 	 * Examples.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly flags = {
-		help: flags.help({char: 'h'})
+		help: Flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly args = [
 		{
 			name: 'package',
@@ -43,7 +39,7 @@ export class IsCurrent extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		const {args} = this.parse(IsCurrent);
+		const {args} = await this.parse(IsCurrent);
 		const packageID = args.package as string;
 
 		const current = await this._manager(async m => {

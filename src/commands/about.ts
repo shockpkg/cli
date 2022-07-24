@@ -6,7 +6,7 @@ import {
 } from '@shockpkg/core';
 
 import {NAME, VERSION} from '../meta';
-import {Command, flags} from '../command';
+import {Command, Flags} from '../command';
 
 /**
  * About command.
@@ -15,34 +15,30 @@ export class About extends Command {
 	/**
 	 * Description.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly description = 'display info about program';
 
 	/**
 	 * Examples.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly flags = {
-		help: flags.help({char: 'h'})
+		help: Flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly args = [];
 
 	/**
 	 * Handler.
 	 */
 	public async run() {
-		this.parse(About);
+		await this.parse(About);
 
 		this.log('Version:');
 		this.log(`  ${NAME}: ${VERSION}`);

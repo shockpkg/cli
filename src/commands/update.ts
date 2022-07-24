@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, flags} from '../command';
+import {Command, Flags} from '../command';
 
 /**
  * Update command.
@@ -9,22 +9,19 @@ export class Update extends Command {
 	/**
 	 * Description.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly description = 'update the packages list';
 
 	/**
 	 * Examples.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly flags = {
-		help: flags.help({char: 'h'}),
-		summary: flags.boolean({
+		help: Flags.help({char: 'h'}),
+		summary: Flags.boolean({
 			char: 's',
 			description: 'Summarize the updated packages'
 		})
@@ -33,16 +30,16 @@ export class Update extends Command {
 	/**
 	 * Arguments.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly args = [];
 
 	/**
 	 * Handler.
 	 */
 	public async run() {
-		const {flags} = this.parse(Update);
+		const {flags} = (await this.parse(Update)) as {
+			flags: {summary?: boolean};
+		};
 		const {summary} = flags;
-
 		const {updated, added, removed} = await this._manager(async m =>
 			m.update()
 		);
@@ -60,7 +57,6 @@ export class Update extends Command {
 				list: removed
 			}
 		];
-
 		if (!summary) {
 			for (const {name, list} of listed) {
 				if (!list.length) {
@@ -73,7 +69,6 @@ export class Update extends Command {
 				this.log('');
 			}
 		}
-
 		for (const {name, list} of listed) {
 			this.log(`${name}: ${list.length}`);
 		}

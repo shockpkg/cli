@@ -1,4 +1,4 @@
-import {Command as CommandBase, flags, run} from '@oclif/command';
+import {Command as CommandBase, Help, Flags, run} from '@oclif/core';
 import sourceMapSupport from 'source-map-support';
 import {Manager, IPackageInstalled} from '@shockpkg/core';
 
@@ -11,7 +11,7 @@ import {
 import {divmod, envTrue, envInteger} from './util';
 import {Progress, ProgressCallback} from './progress';
 
-export {flags, run};
+export {Help, Flags, run};
 
 /**
  * Command object.
@@ -36,7 +36,7 @@ export abstract class Command extends CommandBase {
 	 * @param err Error value.
 	 * @returns Return data if present.
 	 */
-	public async catch(err: any) {
+	public async catch(err: Error) {
 		try {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 			return await super.catch(err);

@@ -50,9 +50,7 @@
 	"copyright": "Copyright (c) 2018-2022 JrMasterModelBuilder",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@oclif/command": "^1.8.16",
-		"@oclif/config": "^1.18.3",
-		"@oclif/plugin-help": "^5.1.12",
+		"@oclif/core": "^1.12.1",
 		"@shockpkg/core": "^2.0.0",
 		"source-map-support": "^0.5.21"
 	},
@@ -62,7 +60,6 @@
 		"@babel/preset-env": "^7.18.9",
 		"@babel/preset-typescript": "^7.18.6",
 		"@babel/register": "^7.18.9",
-		"@oclif/dev-cli": "^1.26.10",
 		"@oclif/test": "^2.1.0",
 		"@types/gulp": "^4.0.9",
 		"@types/gulp-babel": "^6.1.30",
@@ -92,6 +89,7 @@
 		"jasmine": "^4.3.0",
 		"jasmine-core": "^4.3.0",
 		"jasmine-spec-reporter": "^7.0.0",
+		"oclif": "^3.1.1",
 		"prettier": "^2.7.1",
 		"ts-node": "^10.9.1",
 		"typescript": "^4.7.4"
@@ -105,8 +103,13 @@
 	"oclif": {
 		"commands": "./lib/commands",
 		"bin": "shockpkg",
-		"plugins": [
-			"@oclif/plugin-help"
+		"topicSeparator": ":",
+		"plugins": [],
+		"additionalHelpFlags": [
+			"-h"
+		],
+		"additionalVersionFlags": [
+			"-v"
 		],
 		"description": "shockpkg - shockpkg CLI\nCopyright (c) 2018-2022 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
 	}

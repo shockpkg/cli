@@ -21,7 +21,7 @@ The CLI package manager for shockpkg packages.
 $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
-$ shockpkg (-v|--version|version)
+$ shockpkg (--version|-v)
 @shockpkg/cli/1.7.0 darwin-x64 node-v16.16.0
 $ shockpkg --help [COMMAND]
 USAGE
@@ -53,6 +53,7 @@ USAGE
 * [`shockpkg upgrade`](#shockpkg-upgrade)
 * [`shockpkg url`](#shockpkg-url)
 * [`shockpkg verify PACKAGE`](#shockpkg-verify-package)
+* [`shockpkg version`](#shockpkg-version)
 
 ## `shockpkg about`
 
@@ -60,10 +61,13 @@ display info about program
 
 ```
 USAGE
-  $ shockpkg about
+  $ shockpkg about [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  display info about program
 ```
 
 _See code: [src/commands/about.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/about.ts)_
@@ -74,10 +78,13 @@ list the available packages not installed
 
 ```
 USAGE
-  $ shockpkg available
+  $ shockpkg available [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  list the available packages not installed
 ```
 
 _See code: [src/commands/available.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/available.ts)_
@@ -88,10 +95,13 @@ cleanup temporary files and obsolete packages
 
 ```
 USAGE
-  $ shockpkg cleanup
+  $ shockpkg cleanup [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  cleanup temporary files and obsolete packages
 ```
 
 _See code: [src/commands/cleanup.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/cleanup.ts)_
@@ -102,13 +112,16 @@ get package file path
 
 ```
 USAGE
-  $ shockpkg file PACKAGE
+  $ shockpkg file [PACKAGE] [-h]
 
 ARGUMENTS
   PACKAGE  package id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  get package file path
 ```
 
 _See code: [src/commands/file.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/file.ts)_
@@ -119,16 +132,19 @@ display help for shockpkg
 
 ```
 USAGE
-  $ shockpkg help [COMMAND]
+  $ shockpkg help [COMMAND] [-r]
 
 ARGUMENTS
   COMMAND  command to show help for
 
-OPTIONS
-  --all  see all commands in CLI
+FLAGS
+  -r, --recursize  include all child commands in output
+
+DESCRIPTION
+  display help for shockpkg
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.18/src/commands/help.ts)_
+_See code: [src/commands/help.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/help.ts)_
 
 ## `shockpkg info PACKAGE`
 
@@ -136,13 +152,16 @@ view info for package
 
 ```
 USAGE
-  $ shockpkg info PACKAGE
+  $ shockpkg info [PACKAGE] [-h]
 
 ARGUMENTS
   PACKAGE  package id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  view info for package
 ```
 
 _See code: [src/commands/info.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/info.ts)_
@@ -153,13 +172,16 @@ install packages, slim method, fallback on full method
 
 ```
 USAGE
-  $ shockpkg install PACKAGES
+  $ shockpkg install [PACKAGES] [-h]
 
 ARGUMENTS
   PACKAGES  list of packages to be installed
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  install packages, slim method, fallback on full method
 ```
 
 _See code: [src/commands/install.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/install.ts)_
@@ -170,10 +192,13 @@ list the installed packages
 
 ```
 USAGE
-  $ shockpkg installed
+  $ shockpkg installed [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  list the installed packages
 ```
 
 _See code: [src/commands/installed.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/installed.ts)_
@@ -184,13 +209,16 @@ check package is installed and current
 
 ```
 USAGE
-  $ shockpkg is-current PACKAGE
+  $ shockpkg is-current [PACKAGE] [-h]
 
 ARGUMENTS
   PACKAGE  package id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  check package is installed and current
 ```
 
 _See code: [src/commands/is-current.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/is-current.ts)_
@@ -201,13 +229,16 @@ check package is installed
 
 ```
 USAGE
-  $ shockpkg is-installed PACKAGE
+  $ shockpkg is-installed [PACKAGE] [-h]
 
 ARGUMENTS
   PACKAGE  package id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  check package is installed
 ```
 
 _See code: [src/commands/is-installed.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/is-installed.ts)_
@@ -218,13 +249,16 @@ check package is obsolete
 
 ```
 USAGE
-  $ shockpkg is-obsolete PACKAGE
+  $ shockpkg is-obsolete [PACKAGE] [-h]
 
 ARGUMENTS
   PACKAGE  package id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  check package is obsolete
 ```
 
 _See code: [src/commands/is-obsolete.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/is-obsolete.ts)_
@@ -235,10 +269,13 @@ list all the packages in the package list
 
 ```
 USAGE
-  $ shockpkg list
+  $ shockpkg list [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  list all the packages in the package list
 ```
 
 _See code: [src/commands/list.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/list.ts)_
@@ -249,10 +286,13 @@ list the obsolete packages
 
 ```
 USAGE
-  $ shockpkg obsolete
+  $ shockpkg obsolete [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  list the obsolete packages
 ```
 
 _See code: [src/commands/obsolete.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/obsolete.ts)_
@@ -263,10 +303,13 @@ list the outdated packages
 
 ```
 USAGE
-  $ shockpkg outdated
+  $ shockpkg outdated [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  list the outdated packages
 ```
 
 _See code: [src/commands/outdated.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/outdated.ts)_
@@ -277,10 +320,13 @@ get package manager path
 
 ```
 USAGE
-  $ shockpkg path
+  $ shockpkg path [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  get package manager path
 ```
 
 _See code: [src/commands/path.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/path.ts)_
@@ -291,13 +337,16 @@ remove packages
 
 ```
 USAGE
-  $ shockpkg remove PACKAGES
+  $ shockpkg remove [PACKAGES] [-h]
 
 ARGUMENTS
   PACKAGES  list of packages to be removed
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  remove packages
 ```
 
 _See code: [src/commands/remove.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/remove.ts)_
@@ -308,11 +357,14 @@ update the packages list
 
 ```
 USAGE
-  $ shockpkg update
+  $ shockpkg update [-h] [-s]
 
-OPTIONS
-  -h, --help     show CLI help
+FLAGS
+  -h, --help     Show CLI help.
   -s, --summary  Summarize the updated packages
+
+DESCRIPTION
+  update the packages list
 ```
 
 _See code: [src/commands/update.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/update.ts)_
@@ -323,10 +375,13 @@ install packages, slim method
 
 ```
 USAGE
-  $ shockpkg upgrade
+  $ shockpkg upgrade [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  install packages, slim method
 ```
 
 _See code: [src/commands/upgrade.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/upgrade.ts)_
@@ -337,10 +392,13 @@ get package manager package list URL
 
 ```
 USAGE
-  $ shockpkg url
+  $ shockpkg url [-h]
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  get package manager package list URL
 ```
 
 _See code: [src/commands/url.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/url.ts)_
@@ -351,16 +409,33 @@ verify an installed package
 
 ```
 USAGE
-  $ shockpkg verify PACKAGE
+  $ shockpkg verify [PACKAGE] [-h]
 
 ARGUMENTS
   PACKAGE  package id
 
-OPTIONS
-  -h, --help  show CLI help
+FLAGS
+  -h, --help  Show CLI help.
+
+DESCRIPTION
+  verify an installed package
 ```
 
 _See code: [src/commands/verify.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/verify.ts)_
+
+## `shockpkg version`
+
+display version
+
+```
+USAGE
+  $ shockpkg version
+
+DESCRIPTION
+  display version
+```
+
+_See code: [src/commands/version.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/version.ts)_
 <!-- commandsstop -->
 
 # Bugs

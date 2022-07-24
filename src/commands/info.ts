@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, flags} from '../command';
+import {Command, Flags} from '../command';
 
 /**
  * Info command.
@@ -9,27 +9,23 @@ export class Info extends Command {
 	/**
 	 * Description.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly description = 'view info for package';
 
 	/**
 	 * Examples.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly examples = [];
 
 	/**
 	 * Flags.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly flags = {
-		help: flags.help({char: 'h'})
+		help: Flags.help({char: 'h'})
 	};
 
 	/**
 	 * Arguments.
 	 */
-	// eslint-disable-next-line @typescript-eslint/naming-convention
 	public static readonly args = [
 		{
 			name: 'package',
@@ -42,7 +38,7 @@ export class Info extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		const {args} = this.parse(Info);
+		const {args} = await this.parse(Info);
 		const packageID = args.package as string;
 
 		await this._manager(async m => {
