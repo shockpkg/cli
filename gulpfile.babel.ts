@@ -1,4 +1,4 @@
-import {readFile, rm} from 'fs/promises';
+import {readFile, rm, writeFile} from 'fs/promises';
 import {basename} from 'path';
 import {pipeline} from 'stream';
 import {spawn} from 'child_process';
@@ -155,6 +155,15 @@ gulp.task('build:manifest', async () => {
 
 gulp.task('build:readme', async () => {
 	await exec('oclif', ['readme']);
+	await writeFile(
+		'README.md',
+		(await readFile('README.md', 'utf8'))
+			.replace(/(https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/)v/g, '$1')
+			.replace(
+				/(@shockpkg\/cli\/\S+) \S+ \S+/,
+				'$1 platform-arch node-vX.X.X'
+			)
+	);
 });
 
 gulp.task(
