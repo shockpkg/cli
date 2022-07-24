@@ -1,4 +1,4 @@
-import * as command from '@oclif/command';
+import {Command as CommandBase, flags, run} from '@oclif/command';
 import sourceMapSupport from 'source-map-support';
 import {Manager, IPackageInstalled} from '@shockpkg/core';
 
@@ -11,13 +11,7 @@ import {
 import {divmod, envTrue, envInteger} from './util';
 import {Progress, ProgressCallback} from './progress';
 
-// Compensate for ESM and CJS module loader differences.
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-const CommandBase = command.Command || (command as any).default.Command;
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-export const flags = command.flags || (command as any).default.flags;
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-export const run = command.run || (command as any).default.run;
+export {flags, run};
 
 /**
  * Command constructor.
