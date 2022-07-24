@@ -1,6 +1,6 @@
 import * as command from '@oclif/command';
 import sourceMapSupport from 'source-map-support';
-import {Manager, Package, IPackageInstalled} from '@shockpkg/core';
+import {Manager, IPackageInstalled} from '@shockpkg/core';
 
 import {
 	DEBUG_STACK_TRACE_ENV,
@@ -18,11 +18,6 @@ const CommandBase = command.Command || (command as any).default.Command;
 export const flags = command.flags || (command as any).default.flags;
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 export const run = command.run || (command as any).default.run;
-
-const noRangeHeadersErrorMessage = 'Unexpected status code: 200 expected: 206';
-
-const failedInstallSlimTryFullMessage =
-	'Failed to stream using slim method, trying full';
 
 /**
  * Command constructor.
@@ -212,7 +207,6 @@ export abstract class Command extends CommandBase {
 	 */
 	protected _installEvents(manager: Manager, reason: string) {
 		let delimit = false;
-		let streaming: Package | null = null;
 		let progress: Progress | null = null;
 
 		manager.eventPackageInstallCurrent.on(e => {
@@ -233,17 +227,6 @@ export abstract class Command extends CommandBase {
 		});
 		manager.eventPackageInstallAfter.on(e => {
 			this.log(`${reason} complete`);
-		});
-		manager.eventPackageStreamBefore.on(e => {
-			const pkg = e.package;
-			const {source} = pkg;
-
-			// Streaming packages stream multiple pieces, only report once.
-			// Let the extract phase handle the progess reporting.
-			if (pkg !== streaming) {
-				streaming = pkg;
-				this.log(`streaming: ${source}`);
-			}
 		});
 		manager.eventPackageDownloadBefore.on(e => {
 			const pkg = e.package;
@@ -282,7 +265,7 @@ export abstract class Command extends CommandBase {
 				throw new Error('Internal error: Extract has no parent');
 			}
 
-			this.log(`extracting: ${name} from: ${parent.name}`);
+			this.log(`extracting: ${name}`);
 
 			if (progress) {
 				throw new Error('Internal error: Progress is already active');
@@ -306,7 +289,6 @@ export abstract class Command extends CommandBase {
 			progress.end();
 			progress = null;
 			this._transferProgressOutputAfter();
-			streaming = null;
 			this.log('extract complete');
 		});
 	}
@@ -321,7 +303,7 @@ export abstract class Command extends CommandBase {
 		let installed = 0;
 		let skipped = 0;
 		for (const pkg of report) {
-			if (pkg.installed) {
+			if (pkg.install) {
 				installed++;
 			} else {
 				skipped++;
@@ -337,77 +319,11 @@ export abstract class Command extends CommandBase {
 	 * Shared install command runner.
 	 *
 	 * @param packages Pacakges list.
-	 * @param method Install method.
 	 */
-	protected async _commandInstall(packages: string[], method: string) {
-		const report: IPackageInstalled[] = [];
-
-		let installer: (m: Manager, pkg: Package) => Promise<Package[]>;
-		switch (method) {
-			case 'slim': {
-				/**
-				 * Installer function.
-				 *
-				 * @param m Manager.
-				 * @param pkg Package.
-				 */
-				installer = async (m, pkg) => m.installSlim(pkg);
-				break;
-			}
-			case 'full': {
-				/**
-				 * Installer function.
-				 *
-				 * @param m Manager.
-				 * @param pkg Package.
-				 */
-				installer = async (m, pkg) => m.installFull(pkg);
-				break;
-			}
-			case 'best': {
-				/**
-				 * Installer function.
-				 *
-				 * @param m Manager.
-				 * @param pkg Package.
-				 */
-				installer = async (m, pkg) => {
-					try {
-						const r = await m.installSlim(pkg);
-						return r;
-					} catch (err) {
-						if (
-							err &&
-							(err as {message: string}).message ===
-								noRangeHeadersErrorMessage
-						) {
-							this.warn(failedInstallSlimTryFullMessage);
-						} else {
-							throw err;
-						}
-					}
-					return m.installFull(pkg);
-				};
-				break;
-			}
-			default: {
-				throw new Error(
-					`Internal error: Unknown install method: ${method}`
-				);
-			}
-		}
-
-		await this._manager(async m => {
+	protected async _commandInstall(packages: string[]) {
+		const report = await this._manager(async m => {
 			this._installEvents(m, 'install');
-			const list = m.packagesDependOrdered(packages);
-			for (const pkg of list) {
-				// eslint-disable-next-line no-await-in-loop
-				const installed = await installer(m, pkg);
-				report.push({
-					package: pkg,
-					installed
-				});
-			}
+			return m.installMulti(packages);
 		});
 
 		const {installed, skipped} = this._installReportCounts(report);
@@ -418,32 +334,12 @@ export abstract class Command extends CommandBase {
 
 	/**
 	 * Shared upgrade command runner.
-	 *
-	 * @param method Install method.
 	 */
-	protected async _commandUpgrade(method: string) {
-		let report: IPackageInstalled[];
-		switch (method) {
-			case 'slim': {
-				report = await this._manager(async m => {
-					this._installEvents(m, 'upgrade');
-					return m.upgradeSlim();
-				});
-				break;
-			}
-			case 'full': {
-				report = await this._manager(async m => {
-					this._installEvents(m, 'upgrade');
-					return m.upgradeFull();
-				});
-				break;
-			}
-			default: {
-				throw new Error(
-					`Internal error: Unknown upgrade method: ${method}`
-				);
-			}
-		}
+	protected async _commandUpgrade() {
+		const report = await this._manager(async m => {
+			this._installEvents(m, 'upgrade');
+			return m.upgrade();
+		});
 		const {installed, skipped} = this._installReportCounts(report);
 		this.log('');
 		this.log(`upgraded: ${installed}`);

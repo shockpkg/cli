@@ -38,7 +38,7 @@ export class Upgrade extends Command {
 	public async run() {
 		this.parse(Upgrade);
 
-		await this._commandUpgrade('slim');
+		await this._commandUpgrade();
 	}
 }
 export default Upgrade;

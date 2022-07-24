@@ -51,7 +51,7 @@ export class Install extends Command {
 	public async run() {
 		const {argv} = this.parse(Install);
 
-		await this._commandInstall(argv, 'best');
+		await this._commandInstall(argv);
 	}
 }
 export default Install;
