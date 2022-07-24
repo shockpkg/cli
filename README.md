@@ -40,8 +40,6 @@ USAGE
 * [`shockpkg help [COMMAND]`](#shockpkg-help-command)
 * [`shockpkg info PACKAGE`](#shockpkg-info-package)
 * [`shockpkg install PACKAGES`](#shockpkg-install-packages)
-* [`shockpkg install-full PACKAGES`](#shockpkg-install-full-packages)
-* [`shockpkg install-slim PACKAGES`](#shockpkg-install-slim-packages)
 * [`shockpkg installed`](#shockpkg-installed)
 * [`shockpkg is-current PACKAGE`](#shockpkg-is-current-package)
 * [`shockpkg is-installed PACKAGE`](#shockpkg-is-installed-package)
@@ -53,8 +51,6 @@ USAGE
 * [`shockpkg remove PACKAGES`](#shockpkg-remove-packages)
 * [`shockpkg update`](#shockpkg-update)
 * [`shockpkg upgrade`](#shockpkg-upgrade)
-* [`shockpkg upgrade-full`](#shockpkg-upgrade-full)
-* [`shockpkg upgrade-slim`](#shockpkg-upgrade-slim)
 * [`shockpkg url`](#shockpkg-url)
 * [`shockpkg verify PACKAGE`](#shockpkg-verify-package)
 
@@ -167,40 +163,6 @@ OPTIONS
 ```
 
 _See code: [src/commands/install.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/install.ts)_
-
-## `shockpkg install-full PACKAGES`
-
-install packages, full method
-
-```
-USAGE
-  $ shockpkg install-full PACKAGES
-
-ARGUMENTS
-  PACKAGES  list of packages to be installed
-
-OPTIONS
-  -h, --help  show CLI help
-```
-
-_See code: [src/commands/install-full.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/install-full.ts)_
-
-## `shockpkg install-slim PACKAGES`
-
-install packages, slim method
-
-```
-USAGE
-  $ shockpkg install-slim PACKAGES
-
-ARGUMENTS
-  PACKAGES  list of packages to be installed
-
-OPTIONS
-  -h, --help  show CLI help
-```
-
-_See code: [src/commands/install-slim.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/install-slim.ts)_
 
 ## `shockpkg installed`
 
@@ -368,34 +330,6 @@ OPTIONS
 ```
 
 _See code: [src/commands/upgrade.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/upgrade.ts)_
-
-## `shockpkg upgrade-full`
-
-install packages, full method
-
-```
-USAGE
-  $ shockpkg upgrade-full
-
-OPTIONS
-  -h, --help  show CLI help
-```
-
-_See code: [src/commands/upgrade-full.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/upgrade-full.ts)_
-
-## `shockpkg upgrade-slim`
-
-install packages, slim method
-
-```
-USAGE
-  $ shockpkg upgrade-slim
-
-OPTIONS
-  -h, --help  show CLI help
-```
-
-_See code: [src/commands/upgrade-slim.ts](https://github.com/shockpkg/cli/blob/v1.7.0/src/commands/upgrade-slim.ts)_
 
 ## `shockpkg url`
 
