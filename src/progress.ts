@@ -52,7 +52,7 @@ export type ProgressCallback = (
 /**
  * Progress wrapper.
  */
-export class Progress extends Object {
+export class Progress {
 	/**
 	 * Total amount.
 	 */
@@ -95,8 +95,6 @@ export class Progress extends Object {
 	 * @param current Starting progress.
 	 */
 	constructor(total: number, current: number = 0) {
-		super();
-
 		this._total = total;
 		this._current = current;
 		this._prevCurrent = current;
