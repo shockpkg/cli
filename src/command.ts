@@ -14,7 +14,7 @@ import {Progress, ProgressCallback} from './progress';
 export {flags, run};
 
 /**
- * Command constructor.
+ * Command object.
  */
 export abstract class Command extends CommandBase {
 	/**
