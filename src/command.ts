@@ -5,9 +5,9 @@ import {Manager, IPackageInstalled} from '@shockpkg/core';
 import {
 	DEBUG_STACK_TRACE_ENV,
 	DEBUG_SOURCE_MAPS_ENV,
+	DEBUG_ERROR_LOG,
 	UPDATE_INTERVAL_DEFAULT,
-	UPDATE_INTERVAL_ENV,
-	DEBUG_ERROR_LOG
+	UPDATE_INTERVAL_ENV
 } from './constants';
 import {divmod, envTrue, envInteger} from './util';
 import {Progress, ProgressCallback} from './progress';
