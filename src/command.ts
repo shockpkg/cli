@@ -229,9 +229,12 @@ export abstract class Command extends CommandBase {
 		});
 		manager.eventPackageDownloadBefore.on(e => {
 			const pkg = e.package;
-			const {source} = pkg;
-			this.log(`downloading: ${source}`);
-
+			const path = [pkg.name];
+			for (let p = pkg.parent; p; p = p.parent) {
+				path.push(p.name);
+			}
+			path.reverse();
+			this.log(`downloading: ${path.join(': ')}`);
 			if (progress) {
 				throw new Error('Internal error: Progress is already active');
 			}
@@ -258,14 +261,12 @@ export abstract class Command extends CommandBase {
 		});
 		manager.eventPackageExtractBefore.on(e => {
 			const pkg = e.package;
-			const {name} = pkg;
-			const {parent} = pkg;
-			if (!parent) {
-				throw new Error('Internal error: Extract has no parent');
+			const path = [pkg.name];
+			for (let p = pkg.parent; p; p = p.parent) {
+				path.push(p.name);
 			}
-
-			this.log(`extracting: ${name}`);
-
+			path.reverse();
+			this.log(`extracting: ${path.join(': ')}`);
 			if (progress) {
 				throw new Error('Internal error: Progress is already active');
 			}
