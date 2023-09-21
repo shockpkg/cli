@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 import {Command, Flags} from '../command';
 
 /**
@@ -36,10 +34,8 @@ export class Update extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		const {flags} = (await this.parse(Update)) as {
-			flags: {summary?: boolean};
-		};
-		const {summary} = flags;
+		const {flags} = await this.parse(Update);
+
 		const {updated, added, removed} = await this._manager(async m =>
 			m.update()
 		);
@@ -57,7 +53,7 @@ export class Update extends Command {
 				list: removed
 			}
 		];
-		if (!summary) {
+		if (!flags.summary) {
 			for (const {name, list} of listed) {
 				if (!list.length) {
 					continue;

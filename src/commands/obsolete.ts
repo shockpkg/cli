@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 import {Command, Flags} from '../command';
 
 /**
@@ -35,7 +33,6 @@ export class Obsolete extends Command {
 		await this.parse(Obsolete);
 
 		const obsolete = await this._manager(async m => m.obsolete());
-
 		for (const pkg of obsolete) {
 			this.log(pkg);
 		}

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 import {Command, Flags, Args} from '../command';
 
 /**
@@ -43,7 +41,6 @@ export class File extends Command {
 		const file = await this._manager(async m =>
 			m.packageInstallFile(args.package)
 		);
-
 		this.log(file);
 	}
 }

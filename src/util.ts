@@ -17,9 +17,7 @@ export function divmod(v: number, d: number) {
  */
 export function env(name: string) {
 	// eslint-disable-next-line no-process-env
-	const v = process.env[name];
-	// eslint-disable-next-line no-undefined
-	return v === undefined ? null : v;
+	return process.env[name] ?? null;
 }
 
 /**

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 import {
 	NAME as SHOCKPKG_CORE_NAME,
 	VERSION as SHOCKPKG_CORE_VERSION

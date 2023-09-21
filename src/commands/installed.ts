@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 import {Command, Flags} from '../command';
 
 /**
@@ -35,7 +33,6 @@ export class Installed extends Command {
 		await this.parse(Installed);
 
 		const installed = await this._manager(async m => m.installed());
-
 		for (const pkg of installed) {
 			this.log(pkg.name);
 		}

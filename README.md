@@ -138,7 +138,7 @@ ARGUMENTS
   COMMAND  Command to show help for.
 
 FLAGS
-  -r, --recursize  Include all child commands in output.
+  -r, --recursive  Include all child commands in output.
 
 DESCRIPTION
   Show CLI help.

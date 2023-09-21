@@ -18,8 +18,7 @@ export class HelpCommand extends Command {
 	 * Flags.
 	 */
 	public static readonly flags = {
-		// eslint-disable-next-line @typescript-eslint/naming-convention
-		recursize: Flags.boolean({
+		recursive: Flags.boolean({
 			description: 'Include all child commands in output.',
 			char: 'r'
 		})
@@ -45,13 +44,10 @@ export class HelpCommand extends Command {
 	 * Handler.
 	 */
 	public async run() {
-		const {flags, argv} = (await this.parse(HelpCommand)) as {
-			argv: string[];
-			flags: {recursive?: boolean};
-		};
-		const {recursive} = flags;
-		const help = new Help(this.config, {all: recursive});
-		await help.showHelp(argv);
+		const {flags, argv} = await this.parse(HelpCommand);
+
+		const help = new Help(this.config, {all: flags.recursive});
+		await help.showHelp(argv as string[]);
 	}
 }
 export default HelpCommand;

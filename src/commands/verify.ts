@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 import {Command, Flags, Args} from '../command';
 
 /**
@@ -41,7 +39,6 @@ export class Verify extends Command {
 		const {args} = await this.parse(Verify);
 
 		await this._manager(async m => m.packageInstallVerify(args.package));
-
 		this.log('verified');
 	}
 }

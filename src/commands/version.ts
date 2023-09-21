@@ -34,6 +34,7 @@ export class VersionCommand extends Command {
 	 */
 	public async run() {
 		await this.parse(VersionCommand);
+
 		this.log(this.config.userAgent);
 	}
 }
