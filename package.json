@@ -12,42 +12,49 @@
 		"air",
 		"sdk"
 	],
-	"main": "lib/index",
+	"main": "cjs/index",
 	"exports": {
-		"./module.mjs": "./module.mjs",
 		".": [
 			{
-				"import": "./lib/index.mjs",
-				"require": "./lib/index.js",
-				"default": "./lib/index.js"
+				"import": "./esm/index.mjs",
+				"require": "./cjs/index.js",
+				"default": "./cjs/index.js"
 			},
-			"./lib/index.js"
+			"./cjs/index.js"
 		]
 	},
-	"types": "lib/index.d.ts",
-	"module": "module.mjs",
+	"types": "dts/index.d.ts",
+	"module": "esm/index.mjs",
 	"sideEffects": false,
 	"bin": {
 		"shockpkg": "./bin/run"
 	},
 	"engines": {
-		"node": ">=14.15.0"
+		"node": ">=18.12.0"
 	},
 	"scripts": {
-		"clean": "gulp clean",
-		"lint": "gulp lint",
-		"format": "gulp format",
-		"formatted": "gulp formatted",
-		"build": "gulp build",
-		"test": "gulp test",
-		"all": "gulp all",
-		"watch": "gulp watch",
-		"prepack": "gulp prepack"
+		"clean": "rimraf *.log* dts esm cjs oclif.manifest.json",
+		"lint": "eslint .",
+		"format": "prettier -w .",
+		"formatted": "prettier -c .",
+		"build:dts": "tsc",
+		"build:esm": "babel --env-name esm -x .ts -s true -d esm --out-file-extension .mjs src",
+		"build:cjs": "babel --env-name cjs -x .ts -s true -d cjs --out-file-extension .js src",
+		"build:manifest": "oclif manifest",
+		"build:readme": "oclif readme && node scripts/readme-cleanup.mjs",
+		"build": "npm run build:dts && npm run build:esm && npm run build:cjs && npm run build:manifest && npm run build:readme",
+		"test:esm": "node -r source-map-support/register --test esm",
+		"test:cjs": "node -r source-map-support/register --test cjs",
+		"test": "npm run test:esm && npm run test:cjs",
+		"all:esm": "npm run clean && npm run build:esm && npm run test:esm && npm run lint && npm run formatted",
+		"all:cjs": "npm run clean && npm run build:cjs && npm run test:cjs && npm run lint && npm run formatted",
+		"all": "npm run clean && npm run build && npm run test && npm run lint && npm run formatted",
+		"prepack": "npm run clean && npm run build"
 	},
 	"repository": "https://github.com/shockpkg/cli.git",
 	"bugs": "https://github.com/shockpkg/cli/issues",
 	"author": "JrMasterModelBuilder",
-	"copyright": "Copyright (c) 2018-2022 JrMasterModelBuilder",
+	"copyright": "Copyright (c) 2018-2023 JrMasterModelBuilder",
 	"license": "MPL-2.0",
 	"dependencies": {
 		"@oclif/core": "^1.20.2",
@@ -55,6 +62,7 @@
 		"source-map-support": "^0.5.21"
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.22.15",
 		"@babel/core": "^7.19.6",
 		"@babel/preset-env": "^7.19.4",
 		"@babel/preset-typescript": "^7.18.6",
@@ -72,6 +80,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.42.0",
 		"@typescript-eslint/parser": "^5.42.0",
 		"babel-plugin-esm-resolver": "^2.3.0",
+		"babel-plugin-search-and-replace": "^1.1.1",
 		"chai": "^4.3.6",
 		"eslint": "^8.26.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -89,17 +98,29 @@
 		"jasmine-spec-reporter": "^7.0.0",
 		"oclif": "^3.2.24",
 		"prettier": "^2.7.1",
+		"rimraf": "^5.0.1",
 		"ts-node": "^10.9.1",
 		"typescript": "^4.8.4"
 	},
 	"files": [
 		"/bin",
-		"/lib",
-		"/oclif.manifest.json",
-		"/module.mjs"
+		"/dts",
+		"!/dts/**/*.test.d.ts",
+		"!/dts/**/*.spec.d.ts",
+		"/esm",
+		"!/esm/**/*.test.mjs",
+		"!/esm/**/*.test.mjs.map",
+		"!/esm/**/*.spec.mjs",
+		"!/esm/**/*.spec.mjs.map",
+		"/cjs",
+		"!/cjs/**/*.test.js",
+		"!/cjs/**/*.test.js.map",
+		"!/cjs/**/*.spec.js",
+		"!/cjs/**/*.spec.js.map",
+		"/oclif.manifest.json"
 	],
 	"oclif": {
-		"commands": "./lib/commands",
+		"commands": "./cjs/commands",
 		"bin": "shockpkg",
 		"topicSeparator": ":",
 		"plugins": [],
@@ -109,6 +130,6 @@
 		"additionalVersionFlags": [
 			"-v"
 		],
-		"description": "shockpkg - The shockpkg CLI\nCopyright (c) 2018-2022 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
+		"description": "shockpkg - The shockpkg CLI\nCopyright (c) 2018-2023 JrMasterModelBuilder\nLicensed under the Mozilla Public License, v. 2.0"
 	}
 }

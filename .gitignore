@@ -24,5 +24,7 @@ yarn.lock
 /shockpkg
 
 # Build files
-/lib
+/dts
+/esm
+/cjs
 /oclif.manifest.json
