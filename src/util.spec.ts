@@ -1,10 +1,11 @@
 import {spawn} from 'node:child_process';
 
 export async function cli(args: string[]) {
+	const ext = process.platform.startsWith('win') ? '.cmd' : '';
 	const stdout: Buffer[] = [];
 	const stderr: Buffer[] = [];
 	const code = await new Promise<number | null>((resolve, reject) => {
-		const p = spawn('./bin/run', args, {
+		const p = spawn(`./bin/run${ext}`, args, {
 			shell: true
 		});
 		p.stdout?.on('data', (data: Buffer) => {
