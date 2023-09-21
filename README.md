@@ -22,7 +22,7 @@ $ npm install -g @shockpkg/cli
 $ shockpkg COMMAND
 running command...
 $ shockpkg (--version|-v)
-@shockpkg/cli/3.0.0 platform-arch node-vX.X.X
+@shockpkg/cli/3.0.1 platform-arch node-vX.X.X
 $ shockpkg --help [COMMAND]
 USAGE
   $ shockpkg COMMAND
@@ -70,7 +70,7 @@ DESCRIPTION
   Show info about CLI.
 ```
 
-_See code: [cjs/commands/about.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/about.ts)_
+_See code: [cjs/commands/about.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/about.ts)_
 
 ## `shockpkg available`
 
@@ -87,7 +87,7 @@ DESCRIPTION
   List the available packages not installed.
 ```
 
-_See code: [cjs/commands/available.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/available.ts)_
+_See code: [cjs/commands/available.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/available.ts)_
 
 ## `shockpkg cleanup`
 
@@ -104,7 +104,7 @@ DESCRIPTION
   Cleanup temporary files and obsolete packages.
 ```
 
-_See code: [cjs/commands/cleanup.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/cleanup.ts)_
+_See code: [cjs/commands/cleanup.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/cleanup.ts)_
 
 ## `shockpkg file PACKAGE`
 
@@ -124,7 +124,7 @@ DESCRIPTION
   Get package file path.
 ```
 
-_See code: [cjs/commands/file.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/file.ts)_
+_See code: [cjs/commands/file.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/file.ts)_
 
 ## `shockpkg help [COMMAND]`
 
@@ -144,7 +144,7 @@ DESCRIPTION
   Show CLI help.
 ```
 
-_See code: [cjs/commands/help.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/help.ts)_
+_See code: [cjs/commands/help.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/help.ts)_
 
 ## `shockpkg info PACKAGE`
 
@@ -164,7 +164,7 @@ DESCRIPTION
   View info for package.
 ```
 
-_See code: [cjs/commands/info.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/info.ts)_
+_See code: [cjs/commands/info.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/info.ts)_
 
 ## `shockpkg install PACKAGES`
 
@@ -184,7 +184,7 @@ DESCRIPTION
   Install packages.
 ```
 
-_See code: [cjs/commands/install.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/install.ts)_
+_See code: [cjs/commands/install.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/install.ts)_
 
 ## `shockpkg installed`
 
@@ -201,7 +201,7 @@ DESCRIPTION
   List the installed packages.
 ```
 
-_See code: [cjs/commands/installed.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/installed.ts)_
+_See code: [cjs/commands/installed.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/installed.ts)_
 
 ## `shockpkg is-current PACKAGE`
 
@@ -221,7 +221,7 @@ DESCRIPTION
   Check package is installed and current.
 ```
 
-_See code: [cjs/commands/is-current.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/is-current.ts)_
+_See code: [cjs/commands/is-current.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/is-current.ts)_
 
 ## `shockpkg is-installed PACKAGE`
 
@@ -241,7 +241,7 @@ DESCRIPTION
   Check package is installed.
 ```
 
-_See code: [cjs/commands/is-installed.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/is-installed.ts)_
+_See code: [cjs/commands/is-installed.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/is-installed.ts)_
 
 ## `shockpkg is-obsolete PACKAGE`
 
@@ -261,7 +261,7 @@ DESCRIPTION
   Check package is obsolete.
 ```
 
-_See code: [cjs/commands/is-obsolete.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/is-obsolete.ts)_
+_See code: [cjs/commands/is-obsolete.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/is-obsolete.ts)_
 
 ## `shockpkg list`
 
@@ -278,7 +278,7 @@ DESCRIPTION
   List all the packages in the package list.
 ```
 
-_See code: [cjs/commands/list.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/list.ts)_
+_See code: [cjs/commands/list.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/list.ts)_
 
 ## `shockpkg obsolete`
 
@@ -295,7 +295,7 @@ DESCRIPTION
   List obsolete installed packages.
 ```
 
-_See code: [cjs/commands/obsolete.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/obsolete.ts)_
+_See code: [cjs/commands/obsolete.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/obsolete.ts)_
 
 ## `shockpkg outdated`
 
@@ -312,7 +312,7 @@ DESCRIPTION
   List outdated installed packages.
 ```
 
-_See code: [cjs/commands/outdated.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/outdated.ts)_
+_See code: [cjs/commands/outdated.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/outdated.ts)_
 
 ## `shockpkg path`
 
@@ -329,7 +329,7 @@ DESCRIPTION
   Get package manager path.
 ```
 
-_See code: [cjs/commands/path.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/path.ts)_
+_See code: [cjs/commands/path.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/path.ts)_
 
 ## `shockpkg remove PACKAGES`
 
@@ -349,7 +349,7 @@ DESCRIPTION
   Remove packages.
 ```
 
-_See code: [cjs/commands/remove.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/remove.ts)_
+_See code: [cjs/commands/remove.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/remove.ts)_
 
 ## `shockpkg update`
 
@@ -367,7 +367,7 @@ DESCRIPTION
   Update the packages list.
 ```
 
-_See code: [cjs/commands/update.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/update.ts)_
+_See code: [cjs/commands/update.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/update.ts)_
 
 ## `shockpkg upgrade`
 
@@ -384,7 +384,7 @@ DESCRIPTION
   Upgrade all outdated packages.
 ```
 
-_See code: [cjs/commands/upgrade.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/upgrade.ts)_
+_See code: [cjs/commands/upgrade.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/upgrade.ts)_
 
 ## `shockpkg url`
 
@@ -401,7 +401,7 @@ DESCRIPTION
   Get package manager package list URL.
 ```
 
-_See code: [cjs/commands/url.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/url.ts)_
+_See code: [cjs/commands/url.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/url.ts)_
 
 ## `shockpkg verify PACKAGE`
 
@@ -421,7 +421,7 @@ DESCRIPTION
   Verify an installed package.
 ```
 
-_See code: [cjs/commands/verify.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/verify.ts)_
+_See code: [cjs/commands/verify.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/verify.ts)_
 
 ## `shockpkg version`
 
@@ -435,7 +435,7 @@ DESCRIPTION
   Show CLI version.
 ```
 
-_See code: [cjs/commands/version.ts](https://github.com/shockpkg/cli/blob/3.0.0/cjs/commands/version.ts)_
+_See code: [cjs/commands/version.ts](https://github.com/shockpkg/cli/blob/3.0.1/cjs/commands/version.ts)_
 <!-- commandsstop -->
 
 # Bugs
