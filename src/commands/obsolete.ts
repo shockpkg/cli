@@ -32,7 +32,8 @@ export class Obsolete extends Command {
 	public async run() {
 		await this.parse(Obsolete);
 
-		const obsolete = await this._manager(async m => m.obsolete());
+		const m = this._manager();
+		const obsolete = await m.obsolete();
 		for (const pkg of obsolete) {
 			this.log(pkg);
 		}

@@ -33,10 +33,8 @@ export class Url extends Command {
 	public async run() {
 		await this.parse(Url);
 
-		// eslint-disable-next-line @typescript-eslint/require-await
-		await this._manager(async m => {
-			this.log(m.packagesUrl);
-		});
+		const m = this._manager();
+		this.log(m.packagesUrl);
 	}
 }
 export default Url;

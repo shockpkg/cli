@@ -38,38 +38,37 @@ export class Info extends Command {
 	public async run() {
 		const {args} = await this.parse(Info);
 
-		await this._manager(async m => {
-			const pkg = m.packageByUnique(args.package);
-			if (!pkg) {
-				throw new Error(`Unknown package ID: ${args.package}`);
-			}
+		const m = this._manager();
+		const pkg = await m.packageByUnique(args.package);
+		if (!pkg) {
+			throw new Error(`Unknown package ID: ${args.package}`);
+		}
 
-			this.log(`name:      ${pkg.name}`);
-			this.log(`file:      ${pkg.file}`);
-			this.log(`size:      ${pkg.size}`);
-			this.log(`sha256:    ${pkg.sha256}`);
-			this.log(`sha1:      ${pkg.sha1}`);
-			this.log(`md5:       ${pkg.md5}`);
-			this.log(`source:    ${pkg.source}`);
+		this.log(`name:      ${pkg.name}`);
+		this.log(`file:      ${pkg.file}`);
+		this.log(`size:      ${pkg.size}`);
+		this.log(`sha256:    ${pkg.sha256}`);
+		this.log(`sha1:      ${pkg.sha1}`);
+		this.log(`md5:       ${pkg.md5}`);
+		this.log(`source:    ${pkg.source}`);
 
-			const parents: string[] = [];
-			for (let p = pkg.parent; p; p = p.parent) {
-				parents.push(p.name);
-			}
-			if (parents.length) {
-				this.log(`parents:   ${parents.join(' > ')}`);
-			}
+		const parents: string[] = [];
+		for (let p = pkg.parent; p; p = p.parent) {
+			parents.push(p.name);
+		}
+		if (parents.length) {
+			this.log(`parents:   ${parents.join(' > ')}`);
+		}
 
-			if (!(await m.isInstalled(pkg))) {
-				return;
-			}
+		if (!(await m.isInstalled(pkg))) {
+			return;
+		}
 
-			const install = await m.packageInstallFile(pkg);
-			this.log(`installed: ${install}`);
+		const install = await m.file(pkg);
+		this.log(`installed: ${install}`);
 
-			const current = await m.isCurrent(pkg);
-			this.log(`current:   ${current ? 'true' : 'false'}`);
-		});
+		const current = await m.isCurrent(pkg);
+		this.log(`current:   ${current ? 'true' : 'false'}`);
 	}
 }
 export default Info;

@@ -32,10 +32,8 @@ export class Path extends Command {
 	public async run() {
 		await this.parse(Path);
 
-		// eslint-disable-next-line @typescript-eslint/require-await
-		await this._manager(async m => {
-			this.log(m.path);
-		});
+		const m = this._manager();
+		this.log(m.path);
 	}
 }
 export default Path;

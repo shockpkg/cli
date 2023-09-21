@@ -43,10 +43,18 @@ export class Install extends Command {
 	public async run() {
 		const {argv} = await this.parse(Install);
 
-		const report = await this._manager(async m => {
-			this._installEvents(m, 'install');
-			return m.installMulti(argv as string[]);
-		});
+		const m = this._manager();
+		this._installEvents(m, 'install');
+		const report = [];
+		for (const pkg of argv as string[]) {
+			// eslint-disable-next-line no-await-in-loop
+			const install = await m.install(pkg);
+			report.push({
+				// eslint-disable-next-line no-await-in-loop
+				package: (await m.packageByUnique(pkg))!,
+				install
+			});
+		}
 
 		const {installed, skipped} = this._installReportCounts(report);
 		this.log('');

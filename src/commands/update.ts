@@ -36,9 +36,8 @@ export class Update extends Command {
 	public async run() {
 		const {flags} = await this.parse(Update);
 
-		const {updated, added, removed} = await this._manager(async m =>
-			m.update()
-		);
+		const m = this._manager();
+		const {updated, added, removed} = await m.update();
 		const listed = [
 			{
 				name: 'updated',

@@ -187,15 +187,10 @@ export abstract class Command extends CommandBase {
 	/**
 	 * Run an async function with a manager instance.
 	 *
-	 * @param handler Handler function.
-	 * @returns Return value of the handler function.
+	 * @returns Manager instance..
 	 */
-	protected async _manager<T>(handler: (manager: Manager) => Promise<T>) {
-		const manager = new Manager();
-		manager.eventPackageListError.on(err => {
-			this.warn(`Failed to read existing package list: ${err.message}`);
-		});
-		return manager.with(handler);
+	protected _manager(): Manager {
+		return new Manager();
 	}
 
 	/**
@@ -258,38 +253,6 @@ export abstract class Command extends CommandBase {
 			progress = null;
 			this._transferProgressOutputAfter();
 			this.log('download complete');
-		});
-		manager.eventPackageExtractBefore.on(e => {
-			const pkg = e.package;
-			const path = [pkg.name];
-			for (let p = pkg.parent; p; p = p.parent) {
-				path.push(p.name);
-			}
-			path.reverse();
-			this.log(`extracting: ${path.join(': ')}`);
-			if (progress) {
-				throw new Error('Internal error: Progress is already active');
-			}
-			progress = new Progress(pkg.size);
-			progress.start(
-				this._updateInterval(),
-				this._transferProgressOutputInit()
-			);
-		});
-		manager.eventPackageExtractProgress.on(e => {
-			if (!progress) {
-				throw new Error('Internal error: Progress inactive');
-			}
-			progress.set(e.amount);
-		});
-		manager.eventPackageExtractAfter.on(e => {
-			if (!progress) {
-				throw new Error('Internal error: Progress inactive');
-			}
-			progress.end();
-			progress = null;
-			this._transferProgressOutputAfter();
-			this.log('extract complete');
 		});
 	}
 

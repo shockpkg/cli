@@ -33,16 +33,16 @@ export class Available extends Command {
 	public async run() {
 		await this.parse(Available);
 
-		await this._manager(async m => {
-			const installed = await m.installed();
-			const installedSet = new Set(installed);
+		const m = this._manager();
 
-			for (const pkg of m.packageItter()) {
-				if (!installedSet.has(pkg)) {
-					this.log(pkg.name);
-				}
+		const installed = await m.installed();
+		const installedSet = new Set(installed);
+
+		for await (const pkg of m.packages()) {
+			if (!installedSet.has(pkg)) {
+				this.log(pkg.name);
 			}
-		});
+		}
 	}
 }
 export default Available;

@@ -38,7 +38,8 @@ export class Verify extends Command {
 	public async run() {
 		const {args} = await this.parse(Verify);
 
-		await this._manager(async m => m.packageInstallVerify(args.package));
+		const m = this._manager();
+		await m.packageInstallVerify(args.package);
 		this.log('verified');
 	}
 }

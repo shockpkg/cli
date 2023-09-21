@@ -51,12 +51,15 @@ export class About extends Command {
 		this.log('');
 
 		this.log('Info:');
-		// eslint-disable-next-line @typescript-eslint/require-await
-		await this._manager(async m => {
-			this.log(`  Packages Loaded: ${m.loaded ? 'true' : 'false'}`);
-			this.log(`  Install Path: ${m.path}`);
-			this.log(`  Packages URL: ${m.packagesUrl}`);
-		});
+		const m = this._manager();
+		this.log(`  Install Path: ${m.path}`);
+		this.log(`  Packages URL: ${m.packagesUrl}`);
+		try {
+			await m.load();
+		} catch (err) {
+			// Ignore any read or parse errors.
+		}
+		this.log(`  Packages Loaded: ${m.loaded ? 'true' : 'false'}`);
 
 		this.log('');
 	}

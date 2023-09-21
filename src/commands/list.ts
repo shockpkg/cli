@@ -33,12 +33,10 @@ export class List extends Command {
 	public async run() {
 		await this.parse(List);
 
-		// eslint-disable-next-line @typescript-eslint/require-await
-		await this._manager(async m => {
-			for (const pkg of m.packageItter()) {
-				this.log(pkg.name);
-			}
-		});
+		const m = this._manager();
+		for await (const pkg of m.packages()) {
+			this.log(pkg.name);
+		}
 	}
 }
 export default List;

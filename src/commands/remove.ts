@@ -43,16 +43,15 @@ export class Remove extends Command {
 	public async run() {
 		const {argv} = await this.parse(Remove);
 
-		await this._manager(async m => {
-			for (const pkg of argv as string[]) {
-				this.log(pkg);
-				// eslint-disable-next-line no-await-in-loop
-				const removed = await m.remove(pkg);
-				if (!removed) {
-					this.warn(`nothing to remove for: ${pkg}`);
-				}
+		const m = this._manager();
+		for (const pkg of argv as string[]) {
+			this.log(pkg);
+			// eslint-disable-next-line no-await-in-loop
+			const removed = await m.remove(pkg);
+			if (!removed) {
+				this.warn(`nothing to remove for: ${pkg}`);
 			}
-		});
+		}
 	}
 }
 export default Remove;

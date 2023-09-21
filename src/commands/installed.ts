@@ -32,7 +32,8 @@ export class Installed extends Command {
 	public async run() {
 		await this.parse(Installed);
 
-		const installed = await this._manager(async m => m.installed());
+		const m = this._manager();
+		const installed = await m.installed();
 		for (const pkg of installed) {
 			this.log(pkg.name);
 		}

@@ -33,18 +33,17 @@ export class Cleanup extends Command {
 	public async run() {
 		await this.parse(Cleanup);
 
-		await this._manager(async m => {
-			m.eventPackageCleanupBefore.on(e => {
-				this.log(e.package);
-			});
-			m.eventPackageCleanupAfter.on(e => {
-				// Should not normally happen, but possible.
-				if (!e.removed) {
-					this.warn(`nothing to remove for: ${e.package}`);
-				}
-			});
-			return m.cleanup();
+		const m = this._manager();
+		m.eventPackageCleanupBefore.on(e => {
+			this.log(e.package);
 		});
+		m.eventPackageCleanupAfter.on(e => {
+			// Should not normally happen, but possible.
+			if (!e.removed) {
+				this.warn(`nothing to remove for: ${e.package}`);
+			}
+		});
+		await m.cleanup();
 	}
 }
 export default Cleanup;

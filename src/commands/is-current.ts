@@ -39,13 +39,12 @@ export class IsCurrent extends Command {
 	public async run() {
 		const {args} = await this.parse(IsCurrent);
 
-		const current = await this._manager(async m => {
-			const installed = await m.isInstalled(args.package);
-			if (!installed) {
-				throw new Error('Package is not installed');
-			}
-			return m.isCurrent(args.package);
-		});
+		const m = this._manager();
+		const installed = await m.isInstalled(args.package);
+		if (!installed) {
+			throw new Error('Package is not installed');
+		}
+		const current = await m.isCurrent(args.package);
 		if (!current) {
 			throw new Error('Package is not current');
 		}

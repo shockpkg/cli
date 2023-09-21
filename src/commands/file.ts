@@ -38,9 +38,8 @@ export class File extends Command {
 	public async run() {
 		const {args} = await this.parse(File);
 
-		const file = await this._manager(async m =>
-			m.packageInstallFile(args.package)
-		);
+		const m = this._manager();
+		const file = await m.file(args.package);
 		this.log(file);
 	}
 }

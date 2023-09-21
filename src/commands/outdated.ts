@@ -32,7 +32,8 @@ export class Outdated extends Command {
 	public async run() {
 		await this.parse(Outdated);
 
-		const outdated = await this._manager(async m => m.outdated());
+		const m = this._manager();
+		const outdated = await m.outdated();
 		for (const pkg of outdated) {
 			this.log(pkg.name);
 		}
