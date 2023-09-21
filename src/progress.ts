@@ -66,7 +66,7 @@ export class Progress {
 	/**
 	 * Update interval.
 	 */
-	protected _interval: any = null;
+	protected _interval: NodeJS.Timeout | null = null;
 
 	/**
 	 * Update callback.
@@ -154,7 +154,6 @@ export class Progress {
 	 */
 	public end() {
 		if (this._interval) {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 			clearInterval(this._interval);
 			this._interval = null;
 		}
