@@ -1,4 +1,4 @@
-import {Command, Flags, Help} from '../command';
+import {Command, Flags, Args, Help} from '../command';
 
 /**
  * Help command.
@@ -28,13 +28,13 @@ export class HelpCommand extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [
-		{
+	public static readonly args = {
+		command: Args.string({
 			name: 'command',
 			required: false,
 			description: 'Command to show help for.'
-		}
-	];
+		})
+	};
 
 	/**
 	 * Strict mode.

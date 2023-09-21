@@ -1,4 +1,4 @@
-import {Command as CommandBase, Help, Flags, run} from '@oclif/core';
+import {Command as CommandBase, Help, Flags, Args, run} from '@oclif/core';
 import sourceMapSupport from 'source-map-support';
 import {Manager, IPackageInstalled} from '@shockpkg/core';
 
@@ -12,7 +12,7 @@ import {
 import {divmod, envTrue, envInteger} from './util';
 import {Progress, ProgressCallback} from './progress';
 
-export {Help, Flags, run};
+export {Help, Flags, Args, run};
 
 /**
  * Command object.

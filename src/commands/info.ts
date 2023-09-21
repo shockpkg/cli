@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, Flags} from '../command';
+import {Command, Flags, Args} from '../command';
 
 /**
  * Info command.
@@ -26,25 +26,24 @@ export class Info extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [
-		{
+	public static readonly args = {
+		package: Args.string({
 			name: 'package',
 			required: true,
 			description: 'Package ID.'
-		}
-	];
+		})
+	};
 
 	/**
 	 * Handler.
 	 */
 	public async run() {
 		const {args} = await this.parse(Info);
-		const packageId = args.package as string;
 
 		await this._manager(async m => {
-			const pkg = m.packageByUnique(packageId);
+			const pkg = m.packageByUnique(args.package);
 			if (!pkg) {
-				throw new Error(`Unknown package ID: ${packageId}`);
+				throw new Error(`Unknown package ID: ${args.package}`);
 			}
 
 			this.log(`name:      ${pkg.name}`);

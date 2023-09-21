@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, Flags} from '../command';
+import {Command, Flags, Args} from '../command';
 
 /**
  * IsInstalled command.
@@ -26,23 +26,22 @@ export class IsInstalled extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [
-		{
+	public static readonly args = {
+		package: Args.string({
 			name: 'package',
 			required: true,
 			description: 'Package ID.'
-		}
-	];
+		})
+	};
 
 	/**
 	 * Handler.
 	 */
 	public async run() {
 		const {args} = await this.parse(IsInstalled);
-		const packageId = args.package as string;
 
 		const installed = await this._manager(async m =>
-			m.isInstalled(packageId)
+			m.isInstalled(args.package)
 		);
 		if (!installed) {
 			throw new Error('Package is not installed');

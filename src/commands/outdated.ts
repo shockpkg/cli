@@ -26,7 +26,7 @@ export class Outdated extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [];
+	public static readonly args = {};
 
 	/**
 	 * Handler.

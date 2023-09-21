@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, Flags} from '../command';
+import {Command, Flags, Args} from '../command';
 
 /**
  * IsCurrent command.
@@ -27,27 +27,26 @@ export class IsCurrent extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [
-		{
+	public static readonly args = {
+		package: Args.string({
 			name: 'package',
 			required: true,
 			description: 'Package ID.'
-		}
-	];
+		})
+	};
 
 	/**
 	 * Handler.
 	 */
 	public async run() {
 		const {args} = await this.parse(IsCurrent);
-		const packageId = args.package as string;
 
 		const current = await this._manager(async m => {
-			const installed = await m.isInstalled(packageId);
+			const installed = await m.isInstalled(args.package);
 			if (!installed) {
 				throw new Error('Package is not installed');
 			}
-			return m.isCurrent(packageId);
+			return m.isCurrent(args.package);
 		});
 		if (!current) {
 			throw new Error('Package is not current');

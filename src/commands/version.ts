@@ -22,7 +22,7 @@ export class VersionCommand extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [];
+	public static readonly args = {};
 
 	/**
 	 * Strict mode.

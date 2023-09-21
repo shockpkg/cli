@@ -112,7 +112,7 @@ Get package file path.
 
 ```
 USAGE
-  $ shockpkg file [PACKAGE] [-h]
+  $ shockpkg file PACKAGE [-h]
 
 ARGUMENTS
   PACKAGE  Package ID.
@@ -152,7 +152,7 @@ View info for package.
 
 ```
 USAGE
-  $ shockpkg info [PACKAGE] [-h]
+  $ shockpkg info PACKAGE [-h]
 
 ARGUMENTS
   PACKAGE  Package ID.
@@ -172,7 +172,7 @@ Install packages.
 
 ```
 USAGE
-  $ shockpkg install [PACKAGES] [-h]
+  $ shockpkg install PACKAGES [-h]
 
 ARGUMENTS
   PACKAGES  List of packages to be installed.
@@ -209,7 +209,7 @@ Check package is installed and current.
 
 ```
 USAGE
-  $ shockpkg is-current [PACKAGE] [-h]
+  $ shockpkg is-current PACKAGE [-h]
 
 ARGUMENTS
   PACKAGE  Package ID.
@@ -229,7 +229,7 @@ Check package is installed.
 
 ```
 USAGE
-  $ shockpkg is-installed [PACKAGE] [-h]
+  $ shockpkg is-installed PACKAGE [-h]
 
 ARGUMENTS
   PACKAGE  Package ID.
@@ -249,7 +249,7 @@ Check package is obsolete.
 
 ```
 USAGE
-  $ shockpkg is-obsolete [PACKAGE] [-h]
+  $ shockpkg is-obsolete PACKAGE [-h]
 
 ARGUMENTS
   PACKAGE  Package ID.
@@ -337,7 +337,7 @@ Remove packages.
 
 ```
 USAGE
-  $ shockpkg remove [PACKAGES] [-h]
+  $ shockpkg remove PACKAGES [-h]
 
 ARGUMENTS
   PACKAGES  List of packages to be removed.
@@ -409,7 +409,7 @@ Verify an installed package.
 
 ```
 USAGE
-  $ shockpkg verify [PACKAGE] [-h]
+  $ shockpkg verify PACKAGE [-h]
 
 ARGUMENTS
   PACKAGE  Package ID.

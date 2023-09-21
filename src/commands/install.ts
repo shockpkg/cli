@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, Flags} from '../command';
+import {Command, Flags, Args} from '../command';
 
 /**
  * Install command.
@@ -26,13 +26,13 @@ export class Install extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [
-		{
+	public static readonly args = {
+		packages: Args.string({
 			name: 'packages',
 			required: true,
 			description: 'List of packages to be installed.'
-		}
-	];
+		})
+	};
 
 	/**
 	 * Allow variable length arguments.
@@ -47,7 +47,7 @@ export class Install extends Command {
 
 		const report = await this._manager(async m => {
 			this._installEvents(m, 'install');
-			return m.installMulti(argv);
+			return m.installMulti(argv as string[]);
 		});
 
 		const {installed, skipped} = this._installReportCounts(report);

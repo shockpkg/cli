@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 
-import {Command, Flags} from '../command';
+import {Command, Flags, Args} from '../command';
 
 /**
  * File command.
@@ -26,23 +26,22 @@ export class File extends Command {
 	/**
 	 * Arguments.
 	 */
-	public static readonly args = [
-		{
+	public static readonly args = {
+		package: Args.string({
 			name: 'package',
 			required: true,
 			description: 'Package ID.'
-		}
-	];
+		})
+	};
 
 	/**
 	 * Handler.
 	 */
 	public async run() {
 		const {args} = await this.parse(File);
-		const packageId = args.package as string;
 
 		const file = await this._manager(async m =>
-			m.packageInstallFile(packageId)
+			m.packageInstallFile(args.package)
 		);
 
 		this.log(file);
