@@ -1,5 +1,4 @@
 export interface IProgressTime {
-	//
 	/**
 	 * Start time.
 	 */
@@ -22,7 +21,6 @@ export interface IProgressTime {
 }
 
 export interface IProgressTotal {
-	//
 	/**
 	 * Total amount.
 	 */
