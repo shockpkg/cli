@@ -34,7 +34,7 @@
 		"node": ">=18.12.0"
 	},
 	"scripts": {
-		"clean": "rimraf *.log* dts esm cjs oclif.manifest.json",
+		"clean": "rimraf dts esm cjs oclif.manifest.json",
 		"lint": "eslint .",
 		"format": "prettier -w .",
 		"formatted": "prettier -c .",
