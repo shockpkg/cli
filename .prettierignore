@@ -2,6 +2,7 @@
 /dts
 /esm
 /cjs
+/bin
 /oclif.manifest.json
 /README.md
 /shockpkg
