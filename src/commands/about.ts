@@ -56,7 +56,7 @@ export class About extends Command {
 		this.log(`  Packages URL: ${m.packagesUrl}`);
 		try {
 			await m.load();
-		} catch (err) {
+		} catch {
 			// Ignore any read or parse errors.
 		}
 		this.log(`  Packages Loaded: ${m.loaded ? 'true' : 'false'}`);

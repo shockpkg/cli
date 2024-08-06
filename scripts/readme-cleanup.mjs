@@ -1,4 +1,4 @@
-import {readFile, writeFile} from 'fs/promises';
+import {readFile, writeFile} from 'node:fs/promises';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 async function main() {
@@ -13,7 +13,6 @@ async function main() {
 	);
 }
 main().catch(err => {
-	// eslint-disable-next-line no-console
 	console.error(err);
 	process.exitCode = 1;
 });

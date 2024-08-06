@@ -2,7 +2,7 @@ import {spawn} from 'node:child_process';
 
 export async function cli(args: string[]) {
 	const cmd = process.platform.startsWith('win')
-		? '.\\bin\\run.cmd'
+		? String.raw`.\bin\run.cmd`
 		: './bin/run';
 	const stdout: Buffer[] = [];
 	const stderr: Buffer[] = [];

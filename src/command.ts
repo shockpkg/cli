@@ -12,6 +12,7 @@ import {
 import {divmod, envTrue, envInteger} from './util';
 import {Progress, ProgressCallback} from './progress';
 
+// eslint-disable-next-line unicorn/prefer-export-from
 export {Help, Flags, Args, run};
 
 /**
@@ -43,7 +44,6 @@ export abstract class Command extends CommandBase {
 	 */
 	public async catch(err: Error) {
 		try {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 			return await super.catch(err);
 		} catch (err) {
 			// Always throw oclif errors.
