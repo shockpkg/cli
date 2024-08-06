@@ -1,4 +1,4 @@
-import {Command, Flags, Args, Help} from '../command';
+import {Command, Flags, Args, Help} from '../command.ts';
 
 /**
  * Help command.

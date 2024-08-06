@@ -1,4 +1,4 @@
-import {Command, Flags} from '../command';
+import {Command, Flags} from '../command.ts';
 
 /**
  * Obsolete command.

@@ -8,9 +8,9 @@ import {
 	DEBUG_ERROR_LOG,
 	UPDATE_INTERVAL_DEFAULT,
 	UPDATE_INTERVAL_ENV
-} from './constants';
-import {divmod, envTrue, envInteger} from './util';
-import {Progress, ProgressCallback} from './progress';
+} from './constants.ts';
+import {divmod, envTrue, envInteger} from './util.ts';
+import {Progress, ProgressCallback} from './progress.ts';
 
 // eslint-disable-next-line unicorn/prefer-export-from
 export {Help, Flags, Args, run};

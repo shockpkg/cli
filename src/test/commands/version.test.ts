@@ -1,7 +1,7 @@
 import {describe, it} from 'node:test';
 import {ok, strictEqual} from 'node:assert';
 
-import {cli} from '../../util.spec';
+import {cli} from '../../util.spec.ts';
 
 void describe('version', () => {
 	void it('output', async () => {

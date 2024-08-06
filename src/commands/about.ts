@@ -3,8 +3,8 @@ import {
 	VERSION as SHOCKPKG_CORE_VERSION
 } from '@shockpkg/core';
 
-import {NAME, VERSION} from '../meta';
-import {Command, Flags} from '../command';
+import {NAME, VERSION} from '../meta.ts';
+import {Command, Flags} from '../command.ts';
 
 /**
  * About command.

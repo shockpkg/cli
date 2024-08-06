@@ -1,4 +1,4 @@
-import {Command, Flags, Args} from '../command';
+import {Command, Flags, Args} from '../command.ts';
 
 /**
  * Remove command.
